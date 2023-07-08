@@ -4,7 +4,8 @@ import { colors } from './colors';
 
 export const theme = createTheme({
   colors: {
-    bg: colors.blackMidnight100,
+    bgPrimary: colors.blackMidnight100,
+    bgSecondary: colors.blackMidnight200,
   },
 
   cursor: 'pointer',
