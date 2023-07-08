@@ -10,4 +10,6 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   grid-column: 2/3;
   background: ${({ theme }) => theme.colors.bgSecondary};
+  display: grid;
+  grid-template: 64px 1fr 162px / 1fr;
 `;
