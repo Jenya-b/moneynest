@@ -30,7 +30,7 @@ export const StyledNavLink = styled(NavLink)`
   }
 `;
 
-export const NavLinkMenu = styled(NavLink)`
+export const NavLinkMenu = styled.p`
   position: relative;
   padding: 10px 32px 10px 72px;
   font-size: 18px;
@@ -63,7 +63,7 @@ export const StyledMenu = styled(Menu)`
     :hover {
       background-color: ${({ theme }) => theme.colors.bgTertiary};
 
-      a {
+      p {
         color: ${({ theme }) => theme.colors.textPrimary};
 
         ::before {

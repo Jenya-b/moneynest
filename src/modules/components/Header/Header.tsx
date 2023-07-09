@@ -1,6 +1,6 @@
 import { menu } from 'constants/menu';
 import { StyledHeader, Logo, Nav, AccountBtn, MenuList } from './Header.styled';
-import Menu from './Menu/Menu';
+import { BasicMenu } from './Menu/Menu';
 
 export const Header = () => {
   return (
@@ -9,7 +9,7 @@ export const Header = () => {
       <Nav>
         <MenuList>
           {menu.map(({ title, dropDownMenu, path }) => (
-            <Menu key={title} dropDownMenu={dropDownMenu} path={path} title={title} />
+            <BasicMenu key={title} dropDownMenu={dropDownMenu} path={path} title={title} />
           ))}
         </MenuList>
       </Nav>

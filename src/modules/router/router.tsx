@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
         element: <DashboardPage />,
       },
       {
-        path: '/tools/isin-search',
+        path: path.isinSearch,
         element: <IsinSearchPage />,
       },
     ],

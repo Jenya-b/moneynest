@@ -1,5 +1,5 @@
 import { useState, MouseEvent } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import MenuItem from '@mui/material/MenuItem';
 
 import { Button, StyledNavLink, StyledMenu, NavLinkMenu } from './Menu.styled';
@@ -14,15 +14,24 @@ interface BasicMenuProps {
   path: string;
 }
 
-export default function BasicMenu({ dropDownMenu, path, title }: BasicMenuProps) {
+export const BasicMenu = ({ dropDownMenu, path, title }: BasicMenuProps) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
   const open = Boolean(anchorEl);
+
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const openPage = (href: string) => {
+    handleClose();
+    setTimeout(() => navigate(href));
   };
 
   if (!dropDownMenu.length)
@@ -38,12 +47,12 @@ export default function BasicMenu({ dropDownMenu, path, title }: BasicMenuProps)
         {title}
       </Button>
       <StyledMenu anchorEl={anchorEl} open={open} onClose={handleClose}>
-        {dropDownMenu.map(({ title, pointer }) => (
-          <MenuItem key={title} onClick={handleClose}>
-            <NavLinkMenu to={`${path}/${pointer}`}>{title}</NavLinkMenu>
+        {dropDownMenu.map(({ title, pointer }, index) => (
+          <MenuItem key={index} onClick={() => openPage(`${path}/${pointer}`)}>
+            <NavLinkMenu>{title}</NavLinkMenu>
           </MenuItem>
         ))}
       </StyledMenu>
     </li>
   );
-}
+};
