@@ -6,6 +6,9 @@ export const theme = createTheme({
   colors: {
     bgPrimary: colors.blackMidnight100,
     bgSecondary: colors.blackMidnight200,
+    textPrimary: colors.white,
+    textSecondary: colors.grey100,
+    textTertiary: colors.grey200,
   },
 
   cursor: 'pointer',

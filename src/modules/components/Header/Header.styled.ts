@@ -24,3 +24,9 @@ export const AccountBtn = styled.button`
   height: 32px;
   background: url(${accountIcon}) no-repeat;
 `;
+
+export const MenuList = styled.ul`
+  margin-left: 64px;
+  display: flex;
+  column-gap: 32px;
+`;
