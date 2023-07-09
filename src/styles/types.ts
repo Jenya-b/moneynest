@@ -4,6 +4,7 @@ export interface CustomTheme {
     bgSecondary: string;
     bgTertiary: string;
     borderInput: string;
+    bgModal: string;
     bgBtn: string;
     textPrimary: string;
     textSecondary: string;

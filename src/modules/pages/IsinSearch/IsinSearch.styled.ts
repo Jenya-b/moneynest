@@ -27,11 +27,6 @@ export const TitleWrap = styled.div`
   font-weight: 600;
   line-height: normal;
   color: ${({ theme }) => theme.colors.textPrimary};
-
-  img {
-    margin-right: auto;
-    margin-left: 8px;
-  }
 `;
 
 export const ButtonMore = styled.button`
@@ -93,4 +88,9 @@ export const ButtonSearch = styled.button`
   font-weight: 600;
   line-height: normal;
   color: ${({ theme }) => theme.colors.textPrimary};
+`;
+
+export const TooltipWrap = styled.div`
+  margin-right: auto;
+  margin-left: 8px;
 `;
