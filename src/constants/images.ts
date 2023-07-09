@@ -1,4 +1,7 @@
 export const accountIcon = '/source/images/icons/accountBtn.png';
+export const questionIcon = '/source/images/icons/questionIcon.png';
+export const moreBtnIcon = '/source/images/icons/moreBtn.png';
+export const pointerIcon = '/source/images/icons/pointer.png';
 
 export const footerIcon = {
   reddit: '/source/images/icons/reddit.png',

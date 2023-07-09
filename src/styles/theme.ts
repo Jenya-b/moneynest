@@ -7,6 +7,8 @@ export const theme = createTheme({
     bgPrimary: colors.blackMidnight100,
     bgSecondary: colors.blackMidnight200,
     bgTertiary: colors.blackMidnight300,
+    borderInput: colors.grey200,
+    bgBtn: colors.blue300,
     textPrimary: colors.white,
     textSecondary: colors.grey100,
     textTertiary: colors.grey200,

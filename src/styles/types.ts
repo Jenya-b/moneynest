@@ -3,6 +3,8 @@ export interface CustomTheme {
     bgPrimary: string;
     bgSecondary: string;
     bgTertiary: string;
+    borderInput: string;
+    bgBtn: string;
     textPrimary: string;
     textSecondary: string;
     textTertiary: string;
