@@ -74,3 +74,12 @@ export const footerMenu = [
     path: '#',
   },
 ];
+
+export enum MenuEnum {
+  assets = 'Assets',
+  collections = 'Collections',
+  tools = 'Tools',
+  'isin-search' = 'ISIN search',
+  'isin-info' = 'ISIN info',
+  settings = 'Settings',
+}

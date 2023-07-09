@@ -2,6 +2,7 @@ export interface CustomTheme {
   colors: {
     bgPrimary: string;
     bgSecondary: string;
+    bgTertiary: string;
     textPrimary: string;
     textSecondary: string;
     textTertiary: string;

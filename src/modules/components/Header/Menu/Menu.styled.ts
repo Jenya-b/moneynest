@@ -61,7 +61,7 @@ export const StyledMenu = styled(Menu)`
     padding: 0;
 
     :hover {
-      background-color: ${colors.blackMidnight300};
+      background-color: ${({ theme }) => theme.colors.bgTertiary};
 
       a {
         color: ${({ theme }) => theme.colors.textPrimary};
