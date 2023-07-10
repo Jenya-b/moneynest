@@ -14,7 +14,7 @@ export const Logo = styled.div`
 `;
 
 export const Nav = styled.nav`
-  margin-left: 40px;
+  margin-left: 48px;
   margin-right: auto;
 `;
 
@@ -26,7 +26,6 @@ export const AccountBtn = styled.button`
 `;
 
 export const MenuList = styled.ul`
-  margin-left: 64px;
   display: flex;
-  column-gap: 32px;
+  column-gap: 16px;
 `;

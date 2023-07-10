@@ -1,15 +1,15 @@
-export const accountIcon = '/source/images/icons/accountBtn.png';
-export const questionIcon = '/source/images/icons/questionIcon.png';
+export const accountIcon = '/source/images/icons/accountBtn.svg';
+export const questionIcon = '/source/images/icons/questionIcon.svg';
 export const moreBtnIcon = '/source/images/icons/moreBtn.png';
-export const pointerIcon = '/source/images/icons/pointer.png';
+export const pointerIcon = '/source/images/icons/pointer.svg';
 
 export const footerIcon = {
-  reddit: '/source/images/icons/reddit.png',
-  twitter: '/source/images/icons/tw.png',
-  message: '/source/images/icons/message.png',
+  reddit: '/source/images/icons/reddit.svg',
+  twitter: '/source/images/icons/tw.svg',
+  message: '/source/images/icons/message.svg',
 };
 
 export const searchIcon = {
-  active: '/source/images/icons/searchActive.png',
-  noActive: '/source/images/icons/search.png',
+  active: '/source/images/icons/searchActive.svg',
+  noActive: '/source/images/icons/search.svg',
 };
