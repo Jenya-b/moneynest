@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   align-items: center;
   column-gap: 20px;
   color: ${({ theme }) => theme.colors.textTertiary};
+  font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;

@@ -5,7 +5,6 @@ export default createGlobalStyle`
 		padding: 0;
 		margin: 0;
 		border: 0;
-		font-family: 'Nunito', sans-serif;
 	}
 	*,
 	*::before,
@@ -31,6 +30,7 @@ export default createGlobalStyle`
 	}
 	html,
 	body {
+		font-family: 'Nunito', sans-serif;
 		height: 100%;
 		width: 100%;
 		font-size: 100%;

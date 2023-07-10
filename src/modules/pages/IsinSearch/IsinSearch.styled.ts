@@ -27,6 +27,10 @@ export const TitleWrap = styled.div`
   font-weight: 600;
   line-height: normal;
   color: ${({ theme }) => theme.colors.textPrimary};
+
+  p {
+    font-family: 'Poppins', sans-serif;
+  }
 `;
 
 export const ButtonMore = styled.button`
@@ -77,12 +81,18 @@ export const InputSearch = styled.input`
   background: ${({ theme }) => theme.colors.bgPrimary};
   padding-left: 24px;
   color: ${({ theme }) => theme.colors.textPrimary};
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 `;
 
 export const ButtonSearch = styled.button`
   height: 100%;
   border-radius: 5px;
   background: ${({ theme }) => theme.colors.bgBtn};
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;

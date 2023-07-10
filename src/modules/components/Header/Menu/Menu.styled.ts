@@ -11,6 +11,7 @@ interface ButtonProps {
 
 export const Button = styled.button<ButtonProps>`
   background: none;
+  font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -19,6 +20,7 @@ export const Button = styled.button<ButtonProps>`
 `;
 
 export const StyledNavLink = styled(NavLink)`
+  font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -33,6 +35,7 @@ export const StyledNavLink = styled(NavLink)`
 export const NavLinkMenu = styled.p`
   position: relative;
   padding: 10px 32px 10px 72px;
+  font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
