@@ -1,14 +1,15 @@
 import { moreBtnIcon, pointerIcon } from 'constants/images';
 import styled from 'styled-components';
-
-export const SearchBlock = styled.div`
-  margin-top: 8px;
-  height: 168px;
-  display: grid;
-  grid-template-columns: 1fr minmax(300px, 894px) 1fr;
-`;
+import { colors } from 'styles/colors';
 
 export const Container = styled.div`
+  margin-top: 8px;
+  display: grid;
+  grid-template: repeat(3, auto) / 1fr minmax(300px, 894px) 1fr;
+`;
+
+export const SearchBlock = styled.div`
+  height: 168px;
   grid-column: 2/3;
   border-radius: 5px;
   padding: 8px;
@@ -103,4 +104,30 @@ export const ButtonSearch = styled.button`
 export const TooltipWrap = styled.div`
   margin-right: auto;
   margin-left: 8px;
+`;
+
+export const FilterResourceType = styled.div`
+  grid-column: 2/3;
+  margin-top: 8px;
+  padding: 10px 16px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  border-radius: 10px;
+  background: ${({ theme }) => theme.colors.bgTertiary};
+`;
+
+interface TypeItemProps {
+  active: boolean;
+}
+
+export const TypeItem = styled.p<TypeItemProps>`
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-family: 'Poppins', sans-serif;
+  color: ${({ active }) => (active ? `${colors.white}` : `${colors.grey200}`)};
+  cursor: ${({ theme }) => theme.cursor};
 `;

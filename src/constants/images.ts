@@ -2,6 +2,7 @@ export const accountIcon = '/source/images/icons/accountBtn.svg';
 export const questionIcon = '/source/images/icons/questionIcon.svg';
 export const moreBtnIcon = '/source/images/icons/moreBtn.png';
 export const pointerIcon = '/source/images/icons/pointer.svg';
+export const sortIcon = '/source/images/icons/sort.svg';
 
 export const footerIcon = {
   reddit: '/source/images/icons/reddit.svg',

@@ -40,9 +40,6 @@ export default createGlobalStyle`
 		-moz-text-size-adjust: 100%;
 		-webkit-text-size-adjust: 100%;
 	}
-	body {
-		overflow: hidden;
-	}
 	input,
 	button,
 	textarea {

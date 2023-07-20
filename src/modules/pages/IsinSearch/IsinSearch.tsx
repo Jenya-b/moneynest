@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
 import { Main } from 'styles/components';
 import { Breadcrumbs } from 'modules/components/Breadcrumbs/Breadcrumbs';
@@ -13,17 +14,22 @@ import {
   InputSearch,
   ButtonSearch,
   TooltipWrap,
+  FilterResourceType,
+  TypeItem,
 } from './IsinSearch.styled';
 import Tooltip from 'modules/components/Tooltip/Tooltip';
+import { resourceType } from 'constants/filters';
+import { Table } from 'modules/components/Table/Table';
 
 export const IsinSearchPage = () => {
+  const [type, setType] = useState('Shares');
   const location = useLocation();
 
   return (
     <Main>
       <Breadcrumbs pathName={location.pathname} />
-      <SearchBlock>
-        <Container>
+      <Container>
+        <SearchBlock>
           <TitleWrap>
             <p>ISIN/FIGI Info</p>
             <TooltipWrap>
@@ -46,8 +52,18 @@ Both ISIN and FIGI are widely used in the financial industry for trading, settle
               <ButtonSearch>Submit</ButtonSearch>
             </Label>
           </InputWrap>
-        </Container>
-      </SearchBlock>
+        </SearchBlock>
+        <FilterResourceType>
+          {resourceType.map((item) => (
+            <TypeItem key={item} active={item === type} onClick={() => setType(item)}>
+              {item}
+            </TypeItem>
+          ))}
+        </FilterResourceType>
+        <div style={{ gridColumn: '2/3' }}>
+          <Table />
+        </div>
+      </Container>
     </Main>
   );
 };
