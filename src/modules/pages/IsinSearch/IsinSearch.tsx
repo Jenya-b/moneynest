@@ -21,6 +21,7 @@ import Tooltip from 'modules/components/Tooltip/Tooltip';
 import { resourceType } from 'constants/filters';
 import { Table } from 'modules/components/Table/Table';
 import { Pagination } from 'modules/components/Pagination/Pagination';
+import { data } from 'modules/components/Table/data';
 
 export const IsinSearchPage = () => {
   const [page, setPage] = useState(1);
@@ -67,7 +68,7 @@ Both ISIN and FIGI are widely used in the financial industry for trading, settle
           ))}
         </FilterResourceType>
         <div style={{ gridColumn: '2/3' }}>
-          <Table />
+          <Table data={data ?? []} />
           <Pagination count={10} page={page} onChange={handleChangePage} />
         </div>
       </Container>

@@ -2,9 +2,13 @@ import { useState, MouseEvent } from 'react';
 import { THead } from './THead/THead';
 import { StyledTable } from './Table.styled';
 import { TBody } from './TBody/TBody';
-import { data } from './data';
+import { IResponse } from 'modules/services/api/isin';
 
-export const Table = () => {
+interface TableProps {
+  data: IResponse[];
+}
+
+export const Table = ({ data }: TableProps) => {
   const [sortElem, setSortElem] = useState('');
   const [headData, setHeadData] = useState<string[]>([
     'Name/Country',

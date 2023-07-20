@@ -10,7 +10,8 @@ export const StyledPagination = styled(Pagination)`
     column-gap: 12px;
   }
 
-  .css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root {
+  .css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root,
+  .css-2gftvx {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-style: normal;
@@ -19,10 +20,12 @@ export const StyledPagination = styled(Pagination)`
     background: #292949;
     color: white;
   }
-  .css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  .css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected,
+  .css-2gftvx.Mui-selected {
     background: #448fff;
   }
-  .css-1v2lvtn-MuiPaginationItem-root {
+  .css-1v2lvtn-MuiPaginationItem-root,
+  .css-16y9h98 {
     color: white;
   }
 `;
