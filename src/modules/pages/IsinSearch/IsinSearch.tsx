@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 import { Main } from 'styles/components';
 import { Breadcrumbs } from 'modules/components/Breadcrumbs/Breadcrumbs';
@@ -20,10 +20,16 @@ import {
 import Tooltip from 'modules/components/Tooltip/Tooltip';
 import { resourceType } from 'constants/filters';
 import { Table } from 'modules/components/Table/Table';
+import { Pagination } from 'modules/components/Pagination/Pagination';
 
 export const IsinSearchPage = () => {
+  const [page, setPage] = useState(1);
   const [type, setType] = useState('Shares');
   const location = useLocation();
+
+  const handleChangePage = (event: ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
 
   return (
     <Main>
@@ -62,6 +68,7 @@ Both ISIN and FIGI are widely used in the financial industry for trading, settle
         </FilterResourceType>
         <div style={{ gridColumn: '2/3' }}>
           <Table />
+          <Pagination count={10} page={page} onChange={handleChangePage} />
         </div>
       </Container>
     </Main>
