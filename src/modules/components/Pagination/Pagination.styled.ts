@@ -23,6 +23,12 @@ export const StyledPagination = styled(Pagination)`
   .css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected,
   .css-2gftvx.Mui-selected {
     background: #448fff;
+    :active {
+      background: #448fff;
+    }
+    :focus {
+      background: #448fff;
+    }
   }
   .css-1v2lvtn-MuiPaginationItem-root,
   .css-16y9h98 {

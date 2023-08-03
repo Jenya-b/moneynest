@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 import { Main } from 'styles/components';
 import { Breadcrumbs } from 'modules/components/Breadcrumbs/Breadcrumbs';
@@ -21,6 +21,7 @@ import Tooltip from 'modules/components/Tooltip/Tooltip';
 import { resourceType } from 'constants/filters';
 import { Table } from 'modules/components/Table/Table';
 import { Pagination } from 'modules/components/Pagination/Pagination';
+import { useGetDataTableQuery } from 'modules/services';
 import { data } from 'modules/components/Table/data';
 
 export const IsinSearchPage = () => {
@@ -28,12 +29,14 @@ export const IsinSearchPage = () => {
   const [type, setType] = useState('Shares');
   const location = useLocation();
 
+  // const { data, isLoading, isFetching, refetch } = useGetDataTableQuery({ search: '' });
+
   const handleChangePage = (event: ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 
   return (
-    <Main>
+    <Main style={{ overflow: 'hidden' }}>
       <Breadcrumbs pathName={location.pathname} />
       <Container>
         <SearchBlock>

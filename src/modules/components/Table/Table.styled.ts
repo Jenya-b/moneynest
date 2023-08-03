@@ -10,6 +10,8 @@ export const StyledTable = styled.table<ICountColumns>`
   display: grid;
   min-width: 100%;
   grid-template-columns: 50px repeat(${({ count }) => count}, minmax(70px, 1fr));
+  overflow: hidden;
+  overflow-x: auto;
 
   ::-webkit-scrollbar {
     width: 4px;
