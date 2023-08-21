@@ -1,16 +1,23 @@
-export const accountIcon = '/source/images/icons/accountBtn.svg';
-export const questionIcon = '/source/images/icons/questionIcon.svg';
-export const moreBtnIcon = '/source/images/icons/moreBtn.png';
-export const pointerIcon = '/source/images/icons/pointer.svg';
-export const sortIcon = '/source/images/icons/sort.svg';
+import accountIcon from 'source/images/icons/accountBtn.svg';
+import questionIcon from 'source/images/icons/questionIcon.svg';
+import moreBtnIcon from 'source/images/icons/moreBtn.png';
+import pointerIcon from 'source/images/icons/pointer.svg';
+import sortIcon from 'source/images/icons/sort.svg';
+import redditIcon from 'source/images/icons/reddit.svg';
+import twitterIcon from 'source/images/icons/tw.svg';
+import messageIcon from 'source/images/icons/message.svg';
+import activeIcon from 'source/images/icons/searchActive.svg';
+import noActiveIcon from 'source/images/icons/search.svg';
 
-export const footerIcon = {
-  reddit: '/source/images/icons/reddit.svg',
-  twitter: '/source/images/icons/tw.svg',
-  message: '/source/images/icons/message.svg',
+const footerIcon = {
+  reddit: redditIcon,
+  twitter: twitterIcon,
+  message: messageIcon,
 };
 
-export const searchIcon = {
-  active: '/source/images/icons/searchActive.svg',
-  noActive: '/source/images/icons/search.svg',
+const searchIcon = {
+  active: activeIcon,
+  noActive: noActiveIcon,
 };
+
+export { accountIcon, questionIcon, moreBtnIcon, pointerIcon, sortIcon, footerIcon, searchIcon };
