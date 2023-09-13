@@ -8,6 +8,7 @@ import twitterIcon from 'source/images/icons/tw.svg';
 import messageIcon from 'source/images/icons/message.svg';
 import activeIcon from 'source/images/icons/searchActive.svg';
 import noActiveIcon from 'source/images/icons/search.svg';
+import closeModalIcon from 'source/images/icons/closeModal.svg';
 
 const footerIcon = {
   reddit: redditIcon,
@@ -20,4 +21,13 @@ const searchIcon = {
   noActive: noActiveIcon,
 };
 
-export { accountIcon, questionIcon, moreBtnIcon, pointerIcon, sortIcon, footerIcon, searchIcon };
+export {
+  accountIcon,
+  questionIcon,
+  moreBtnIcon,
+  pointerIcon,
+  sortIcon,
+  footerIcon,
+  searchIcon,
+  closeModalIcon,
+};
