@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { TabsEnum } from './NewEntry';
+import { Switch, SwitchProps, styled as styledMUI } from '@mui/material';
 
 interface TabProps {
   tabNum: TabsEnum;
@@ -29,7 +30,7 @@ export const Tabs = styled.div`
 
 export const Tab = styled.div<TabProps>`
   position: absolute;
-  top: 0;
+  top: 1px;
   width: calc(122px + 14px);
   height: 100%;
   text-align: center;
@@ -78,6 +79,81 @@ export const TabLine = styled.div<TabProps>`
 `;
 
 export const Content = styled.div`
+  padding: 24px 16px 32px 16px;
   background: ${({ theme }) => theme.colors.bgTertiary};
   color: ${({ theme }) => theme.colors.textPrimary};
 `;
+
+export const SwitchPrimary = styledMUI((props: SwitchProps) => (
+  <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+))(({ theme }) => ({
+  width: 42,
+  height: 26,
+  padding: 0,
+  '& .MuiSwitch-switchBase': {
+    padding: 0,
+    margin: 2,
+    transitionDuration: '300ms',
+    color: '#292949',
+    '&.Mui-checked': {
+      transform: 'translateX(16px)',
+      color: '#292949',
+      '& + .MuiSwitch-track': {
+        backgroundColor:
+          theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.40)' : 'rgba(255, 255, 255, 0.40)',
+        opacity: 1,
+        border: 0,
+      },
+      '&.Mui-disabled + .MuiSwitch-track': {
+        opacity: 0.5,
+      },
+    },
+  },
+  '& .MuiSwitch-thumb': {
+    boxSizing: 'border-box',
+    width: 22,
+    height: 22,
+  },
+  '& .MuiSwitch-track': {
+    borderRadius: 26 / 2,
+    backgroundColor: theme.palette.mode === 'light' ? '#fff' : '#fff',
+    opacity: 1,
+  },
+}));
+
+export const SwitchSecondary = styledMUI((props: SwitchProps) => (
+  <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+))(({ theme }) => ({
+  width: 42,
+  height: 26,
+  padding: 0,
+  '& .MuiSwitch-switchBase': {
+    padding: 0,
+    margin: 2,
+    transitionDuration: '300ms',
+    color: '#292949',
+    '&.Mui-checked': {
+      transform: 'translateX(16px)',
+      color: '#292949',
+      '& + .MuiSwitch-track': {
+        backgroundColor:
+          theme.palette.mode === 'dark' ? 'rgba(242, 82, 47, 0.6)' : 'rgba(242, 82, 47, 0.6)',
+        opacity: 1,
+        border: 0,
+      },
+      '&.Mui-disabled + .MuiSwitch-track': {
+        opacity: 0.5,
+      },
+    },
+  },
+  '& .MuiSwitch-thumb': {
+    boxSizing: 'border-box',
+    width: 22,
+    height: 22,
+  },
+  '& .MuiSwitch-track': {
+    borderRadius: 26 / 2,
+    backgroundColor: theme.palette.mode === 'light' ? '#4ED251' : '#4ED251',
+    opacity: 1,
+  },
+}));

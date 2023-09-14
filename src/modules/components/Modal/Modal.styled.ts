@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { closeModalIcon } from 'constants/images';
+import { closeIcon } from 'constants/images';
 
 export const CloseModalBtn = styled.button`
   position: absolute;
@@ -8,7 +8,7 @@ export const CloseModalBtn = styled.button`
   right: 1.7rem;
   width: 1.7rem;
   height: 1.7rem;
-  background: url(${closeModalIcon}) no-repeat;
+  background: url(${closeIcon}) no-repeat;
   background-position: center;
   background-size: contain;
 `;
