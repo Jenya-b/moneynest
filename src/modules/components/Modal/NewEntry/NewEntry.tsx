@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Title } from '../Modal.styled';
+import { CloseModalBtn, Title } from '../Modal.styled';
 import { Tabs, Tab, TabLine, Wrapper, Content } from './NewEntry.styled';
 import { Equities } from './Equities/Equities';
 import { Cash } from './Cash/Cash';
@@ -21,7 +21,11 @@ const tabsInfo = {
   [TabsEnum.CustomAssets]: 'Custom Assets',
 };
 
-export const NewEntry = () => {
+interface NewEntryProps {
+  handleCloseModal: () => void;
+}
+
+export const NewEntry = ({ handleCloseModal }: NewEntryProps) => {
   const [activeTab, setActiveTab] = useState<TabsEnum>(0);
 
   const handleActiveTab = (item: TabsEnum) => setActiveTab(Number(item));
@@ -60,6 +64,7 @@ export const NewEntry = () => {
       </Tabs>
       <TabLine tabNum={activeTab} />
       <Content>{renderItem()}</Content>
+      <CloseModalBtn onClick={handleCloseModal} />
     </Wrapper>
   );
 };

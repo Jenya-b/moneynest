@@ -4,7 +4,7 @@ import { closeIcon } from 'constants/images';
 
 export const CloseModalBtn = styled.button`
   position: absolute;
-  top: 1.7rem;
+  top: 1.3rem;
   right: 1.7rem;
   width: 1.7rem;
   height: 1.7rem;

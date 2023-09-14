@@ -31,6 +31,7 @@ export const Tabs = styled.div`
 `;
 
 export const Tab = styled.div<TabProps>`
+  cursor: pointer;
   position: absolute;
   top: 1px;
   width: calc(122px + 14px);

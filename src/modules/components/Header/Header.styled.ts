@@ -1,5 +1,6 @@
 import { accountIcon } from 'constants/images';
 import styled from 'styled-components';
+import { Button } from 'styles/components';
 
 export const StyledHeader = styled.header`
   padding: 8px;
@@ -28,4 +29,9 @@ export const AccountBtn = styled.button`
 export const MenuList = styled.ul`
   display: flex;
   column-gap: 16px;
+`;
+
+export const ModalBtn = styled(Button)`
+  background-color: ${({ theme }) => theme.colors.bgBtn};
+  margin-right: 20px;
 `;
