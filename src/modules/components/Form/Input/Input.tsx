@@ -1,7 +1,7 @@
 import { FormEvent } from 'react';
 
 import { Label } from 'styles/components';
-import { ClearBtn, IconInput, StyledInput } from './InputWithIcon.styled';
+import { ClearBtn, IconInput, StyledInput } from './Input.styled';
 import { InputTextPosition, InputType } from '../model';
 
 interface InputWithIconProps {
@@ -15,7 +15,7 @@ interface InputWithIconProps {
   valuePosition?: InputTextPosition;
 }
 
-export const InputWithIcon = ({
+export const Input = ({
   label,
   value,
   placeholder,

@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 
 import { SwitchPrimary, SwitchSecondary } from '../NewEntry.styled';
-import { InputWithIcon } from 'modules/components/Form/InputWithIcon/InputWithIcon';
+import { Input } from 'modules/components/Form/Input/Input';
 import { inputDateIcon, inputIcon } from 'constants/images';
 import { InputTextPosition, InputType } from 'modules/components/Form/model';
 import { MultipleSelect } from 'modules/components/Form/MultipleSelect/MultipleSelect';
@@ -77,7 +77,7 @@ export const Equities = () => {
       </Box>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <InputWithIcon
+          <Input
             value={name}
             handleChange={handleChangeName}
             handleClearValue={handleClearNameValue}
@@ -88,7 +88,7 @@ export const Equities = () => {
           />
         </Grid>
         <Grid item xs={6}>
-          <InputWithIcon
+          <Input
             value={executionDate}
             handleChange={handleChangeExecutionDate}
             handleClearValue={handleClearExecutionDate}
@@ -99,7 +99,7 @@ export const Equities = () => {
           />
         </Grid>
         <Grid item xs={6}>
-          <InputWithIcon
+          <Input
             value={valueDate}
             handleChange={handleChangeValueDate}
             handleClearValue={handleClearValueDate}
@@ -110,7 +110,7 @@ export const Equities = () => {
           />
         </Grid>
         <Grid item xs={4}>
-          <InputWithIcon
+          <Input
             value={quantity}
             handleChange={handleChangeQuantity}
             handleClearValue={handleClearQuantity}
@@ -129,7 +129,7 @@ export const Equities = () => {
           />
         </Grid>
         <Grid item xs={4}>
-          <InputWithIcon
+          <Input
             value={price}
             handleChange={handleChangePrice}
             handleClearValue={handleClearPrice}
@@ -149,7 +149,7 @@ export const Equities = () => {
           />
         </Grid>
         <Grid item xs={4}>
-          <InputWithIcon
+          <Input
             value={feeValue}
             handleChange={handleChangeFeeValue}
             handleClearValue={handleClearFeeValue}
@@ -158,7 +158,7 @@ export const Equities = () => {
           />
         </Grid>
         <Grid item xs={4}>
-          <InputWithIcon
+          <Input
             value={isin}
             handleChange={handleChangeIsin}
             handleClearValue={handleClearIsin}
