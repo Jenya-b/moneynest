@@ -1,7 +1,9 @@
 import { useState } from 'react';
+
 import { Title } from '../Modal.styled';
 import { Tabs, Tab, TabLine, Wrapper, Content } from './NewEntry.styled';
 import { Equities } from './Equities/Equities';
+import { Cash } from './Cash/Cash';
 
 export enum TabsEnum {
   Equities,
@@ -29,7 +31,7 @@ export const NewEntry = () => {
       case TabsEnum.Equities:
         return <Equities />;
       case TabsEnum.Cash:
-        return <div>Cash</div>;
+        return <Cash />;
       case TabsEnum.Fx:
         return <div>Fx</div>;
       case TabsEnum.RealAssets:
