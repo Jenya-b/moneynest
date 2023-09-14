@@ -5,7 +5,6 @@ import { SwitchPrimary, SwitchSecondary } from '../NewEntry.styled';
 import { InputWithIcon } from 'modules/components/Form/InputWithIcon/InputWithIcon';
 import { inputDateIcon, inputIcon } from 'constants/images';
 import { InputTextPosition, InputType } from 'modules/components/Form/model';
-import { Select } from 'modules/components/Form/Select/Select';
 import { MultipleSelect } from 'modules/components/Form/MultipleSelect/MultipleSelect';
 
 export const Equities = () => {
@@ -14,20 +13,20 @@ export const Equities = () => {
   const [valueDate, setValueDate] = useState('');
   const [quantity, setQuantity] = useState('');
   const [price, setPrice] = useState('');
-  const [priceCurrency, setPriceCurrency] = useState('');
-  const [feeCurrency, setFeeCurrency] = useState('');
+  const [priceCurrency, setPriceCurrency] = useState<string[]>([]);
+  const [feeCurrency, setFeeCurrency] = useState<string[]>([]);
   const [feeValue, setFeeValue] = useState('');
   const [isin, setIsin] = useState('');
-  const [nominalCurrency, setNominalCurrency] = useState('');
-  const [nominalValue, setNominalValue] = useState('');
-  const [country, setCountry] = useState('');
-  const [region, setRegion] = useState('');
-  const [sector, setSector] = useState('');
-  const [industry, setIndustry] = useState('');
-  const [portfolio, setPortfolio] = useState('');
-  const [custodian, setCustodian] = useState('');
-  const [accountHolder, setAccountHolder] = useState('');
-  const [accountNumber, setAccountNumber] = useState('');
+  const [nominalCurrency, setNominalCurrency] = useState<string[]>([]);
+  const [nominalValue, setNominalValue] = useState<string[]>([]);
+  const [country, setCountry] = useState<string[]>([]);
+  const [region, setRegion] = useState<string[]>([]);
+  const [sector, setSector] = useState<string[]>([]);
+  const [industry, setIndustry] = useState<string[]>([]);
+  const [portfolio, setPortfolio] = useState<string[]>([]);
+  const [custodian, setCustodian] = useState<string[]>([]);
+  const [accountHolder, setAccountHolder] = useState<string[]>([]);
+  const [accountNumber, setAccountNumber] = useState<string[]>([]);
   const [views, setViews] = useState<string[]>([]);
 
   const handleChangeName = (e: FormEvent<HTMLInputElement>) => setName(e.currentTarget.value);
@@ -53,12 +52,6 @@ export const Equities = () => {
 
   const handleClearPrice = () => setPrice('');
 
-  const handleChangePriceCurrency = (e: FormEvent<HTMLSelectElement>) =>
-    setPriceCurrency(e.currentTarget.value);
-
-  const handleChangeFeeCurrencyy = (e: FormEvent<HTMLSelectElement>) =>
-    setFeeCurrency(e.currentTarget.value);
-
   const handleChangeFeeValue = (e: FormEvent<HTMLInputElement>) =>
     setFeeValue(e.currentTarget.value);
 
@@ -67,34 +60,6 @@ export const Equities = () => {
   const handleChangeIsin = (e: FormEvent<HTMLInputElement>) => setIsin(e.currentTarget.value);
 
   const handleClearIsin = () => setIsin('');
-
-  const handleChangeNominalCurrency = (e: FormEvent<HTMLSelectElement>) =>
-    setNominalCurrency(e.currentTarget.value);
-
-  const handleChangeNominalValue = (e: FormEvent<HTMLSelectElement>) =>
-    setNominalValue(e.currentTarget.value);
-
-  const handleChangeCountry = (e: FormEvent<HTMLSelectElement>) =>
-    setCountry(e.currentTarget.value);
-
-  const handleChangeRegion = (e: FormEvent<HTMLSelectElement>) => setRegion(e.currentTarget.value);
-
-  const handleChangeSector = (e: FormEvent<HTMLSelectElement>) => setSector(e.currentTarget.value);
-
-  const handleChangeIndustry = (e: FormEvent<HTMLSelectElement>) =>
-    setIndustry(e.currentTarget.value);
-
-  const handleChangePortfolio = (e: FormEvent<HTMLSelectElement>) =>
-    setPortfolio(e.currentTarget.value);
-
-  const handleChangeCustodian = (e: FormEvent<HTMLSelectElement>) =>
-    setCustodian(e.currentTarget.value);
-
-  const handleChangeAccountHolder = (e: FormEvent<HTMLSelectElement>) =>
-    setAccountHolder(e.currentTarget.value);
-
-  const handleChangeAccountNumber = (e: FormEvent<HTMLSelectElement>) =>
-    setAccountNumber(e.currentTarget.value);
 
   return (
     <Box>
@@ -154,11 +119,13 @@ export const Equities = () => {
           />
         </Grid>
         <Grid item xs={4}>
-          <Select
+          <MultipleSelect
+            isMultiple={false}
+            data={['1', '2', '3']}
             label="Price currency"
             placeholder="Currency"
-            value={priceCurrency}
-            handleChange={handleChangePriceCurrency}
+            selectValue={priceCurrency}
+            setSelectValue={setPriceCurrency}
           />
         </Grid>
         <Grid item xs={4}>
@@ -172,11 +139,13 @@ export const Equities = () => {
         </Grid>
         <Grid item xs={4}></Grid>
         <Grid item xs={4}>
-          <Select
+          <MultipleSelect
+            isMultiple={false}
+            data={['1', '2', '3']}
             label="Fee currency"
             placeholder="Currency"
-            value={feeCurrency}
-            handleChange={handleChangeFeeCurrencyy}
+            selectValue={feeCurrency}
+            setSelectValue={setFeeCurrency}
           />
         </Grid>
         <Grid item xs={4}>
@@ -198,59 +167,73 @@ export const Equities = () => {
           />
         </Grid>
         <Grid item xs={4}>
-          <Select
+          <MultipleSelect
+            isMultiple={false}
+            data={['1', '2', '3']}
             label="Nominal currency"
             placeholder="Currency"
-            value={nominalCurrency}
-            handleChange={handleChangeNominalCurrency}
+            selectValue={nominalCurrency}
+            setSelectValue={setNominalCurrency}
           />
         </Grid>
         <Grid item xs={4}>
-          <Select
+          <MultipleSelect
+            isMultiple={false}
+            data={['1', '2', '3']}
             label="Nominal value"
             placeholder="Currency"
-            value={nominalValue}
-            handleChange={handleChangeNominalValue}
+            selectValue={nominalValue}
+            setSelectValue={setNominalValue}
           />
         </Grid>
         <Grid item xs={3}>
-          <Select
+          <MultipleSelect
+            isMultiple={false}
+            data={['1', '2', '3']}
             label="Country"
             placeholder="Country"
-            value={country}
-            handleChange={handleChangeCountry}
+            selectValue={country}
+            setSelectValue={setCountry}
           />
         </Grid>
         <Grid item xs={3}>
-          <Select
+          <MultipleSelect
+            isMultiple={false}
+            data={['1', '2', '3']}
             label="Region"
             placeholder="Region"
-            value={region}
-            handleChange={handleChangeRegion}
+            selectValue={region}
+            setSelectValue={setRegion}
           />
         </Grid>
         <Grid item xs={3}>
-          <Select
+          <MultipleSelect
+            isMultiple={false}
+            data={['1', '2', '3']}
             label="Sector"
             placeholder="Sector"
-            value={sector}
-            handleChange={handleChangeSector}
+            selectValue={sector}
+            setSelectValue={setSector}
           />
         </Grid>
         <Grid item xs={3}>
-          <Select
+          <MultipleSelect
+            isMultiple={false}
+            data={['1', '2', '3']}
             label="Industry"
             placeholder="Industry"
-            value={industry}
-            handleChange={handleChangeIndustry}
+            selectValue={industry}
+            setSelectValue={setIndustry}
           />
         </Grid>
         <Grid item xs={5}>
-          <Select
+          <MultipleSelect
+            isMultiple={false}
+            data={['1', '2', '3']}
             label="Portfolio"
             placeholder="Portfolio"
-            value={portfolio}
-            handleChange={handleChangePortfolio}
+            selectValue={portfolio}
+            setSelectValue={setPortfolio}
           />
         </Grid>
         <Grid item xs={7}>
@@ -264,27 +247,33 @@ export const Equities = () => {
           />
         </Grid>
         <Grid item xs={6}>
-          <Select
+          <MultipleSelect
+            isMultiple={false}
+            data={['1', '2', '3']}
             label="Custodian"
             placeholder="Custodian"
-            value={custodian}
-            handleChange={handleChangeCustodian}
+            selectValue={custodian}
+            setSelectValue={setCustodian}
           />
         </Grid>
         <Grid item xs={6}>
-          <Select
+          <MultipleSelect
+            isMultiple={false}
+            data={['1', '2', '3']}
             label="Account holder"
             placeholder="Account holder"
-            value={accountHolder}
-            handleChange={handleChangeAccountHolder}
+            selectValue={accountHolder}
+            setSelectValue={setAccountHolder}
           />
         </Grid>
         <Grid item xs={6}>
-          <Select
-            label="Account number"
+          <MultipleSelect
+            isMultiple={false}
             placeholder="Account number"
-            value={accountNumber}
-            handleChange={handleChangeAccountNumber}
+            label="Account number"
+            data={['1', '2', '3']}
+            selectValue={accountNumber}
+            setSelectValue={setAccountNumber}
           />
         </Grid>
       </Grid>

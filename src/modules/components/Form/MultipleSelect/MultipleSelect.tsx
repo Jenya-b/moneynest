@@ -84,6 +84,9 @@ export const MultipleSelect = ({
           if (selected.length === 0) {
             return <em style={{ fontStyle: 'normal' }}>{placeholder}</em>;
           }
+          if (!isMultiple) {
+            return <em style={{ fontStyle: 'normal', color: '#fff' }}>{selected.join('')}</em>;
+          }
           return (
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
               {selected.map((value) => (
