@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { TabsEnum } from './NewEntry';
 import { Switch, SwitchProps, styled as styledMUI } from '@mui/material';
+import { Button } from 'styles/components';
+import { colors } from 'styles/colors';
 
 interface TabProps {
   tabNum: TabsEnum;
@@ -157,3 +159,11 @@ export const SwitchSecondary = styledMUI((props: SwitchProps) => (
     opacity: 1,
   },
 }));
+
+export const ButtonPrimary = styled(Button)`
+  background: ${colors.grey200};
+`;
+
+export const ButtonSecondary = styled(Button)`
+  background: ${({ theme }) => theme.colors.bgBtn};
+`;

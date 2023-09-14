@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 
-import { SwitchPrimary, SwitchSecondary } from '../NewEntry.styled';
+import { ButtonPrimary, ButtonSecondary, SwitchPrimary, SwitchSecondary } from '../NewEntry.styled';
 import { Input } from 'modules/components/Form/Input/Input';
 import { inputDateIcon, inputIcon } from 'constants/images';
 import { InputTextPosition, InputType } from 'modules/components/Form/model';
@@ -62,7 +62,7 @@ export const Equities = () => {
   const handleClearIsin = () => setIsin('');
 
   return (
-    <Box>
+    <>
       <Box sx={{ height: '50px', display: 'flex', alignItems: 'center', columnGap: '32px' }}>
         <Stack direction="row" spacing={1} alignItems="center">
           <Typography>Transaction</Typography>
@@ -277,6 +277,10 @@ export const Equities = () => {
           />
         </Grid>
       </Grid>
-    </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end', columnGap: '10px', mt: 2 }}>
+        <ButtonPrimary>Cancel</ButtonPrimary>
+        <ButtonSecondary>Enter</ButtonSecondary>
+      </Box>
+    </>
   );
 };

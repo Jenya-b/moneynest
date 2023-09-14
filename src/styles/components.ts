@@ -34,3 +34,13 @@ export const Select = styled.select`
   border: 1px solid #7171c0;
   background: ${({ theme }) => theme.colors.bgSecondary};
 `;
+
+export const Button = styled.button`
+  padding: 8px 24px;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border-radius: 5px;
+`;
