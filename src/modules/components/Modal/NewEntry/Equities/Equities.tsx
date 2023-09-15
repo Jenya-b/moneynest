@@ -76,7 +76,10 @@ export const Equities = () => {
     <>
       <Box sx={{ height: '50px', display: 'flex', alignItems: 'center', columnGap: '32px' }}>
         <Stack direction="row" spacing={1} alignItems="center">
-          <Typography sx={{ color: '#ffffff', opacity: switchState.transaction ? 0.6 : 1 }}>
+          <Typography
+            onClick={() => setSwitchState({ ...switchState, transaction: false })}
+            sx={{ color: '#ffffff', opacity: switchState.transaction ? 0.6 : 1, cursor: 'pointer' }}
+          >
             Transaction
           </Typography>
           <SwitchPrimary
@@ -85,19 +88,30 @@ export const Equities = () => {
             name="transaction"
             inputProps={{ 'aria-label': 'ant design' }}
           />
-          <Typography sx={{ color: '#ffffff', opacity: switchState.transaction ? 1 : 0.6 }}>
+          <Typography
+            onClick={() => setSwitchState({ ...switchState, transaction: true })}
+            sx={{ color: '#ffffff', opacity: switchState.transaction ? 1 : 0.6, cursor: 'pointer' }}
+          >
             Position
           </Typography>
         </Stack>
         <Stack direction="row" spacing={1} alignItems="center">
-          <Typography sx={{ color: '#4ED251', opacity: switchState.buy ? 0.6 : 1 }}>Buy</Typography>
+          <Typography
+            onClick={() => setSwitchState({ ...switchState, buy: false })}
+            sx={{ color: '#4ED251', opacity: switchState.buy ? 0.6 : 1, cursor: 'pointer' }}
+          >
+            Buy
+          </Typography>
           <SwitchSecondary
             checked={switchState.buy}
             inputProps={{ 'aria-label': 'ant design' }}
             onChange={handleSwitchChange}
             name="buy"
           />
-          <Typography sx={{ color: '#F2522F', opacity: switchState.buy ? 1 : 0.6 }}>
+          <Typography
+            onClick={() => setSwitchState({ ...switchState, buy: true })}
+            sx={{ color: '#F2522F', opacity: switchState.buy ? 1 : 0.6, cursor: 'pointer' }}
+          >
             Sell
           </Typography>
         </Stack>

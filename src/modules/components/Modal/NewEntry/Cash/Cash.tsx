@@ -55,7 +55,10 @@ export const Cash = () => {
     <>
       <Box sx={{ height: '50px', display: 'flex', alignItems: 'center', columnGap: '32px' }}>
         <Stack direction="row" spacing={1} alignItems="center">
-          <Typography sx={{ color: '#ffffff', opacity: switchState.cash ? 0.6 : 1 }}>
+          <Typography
+            onClick={() => setSwitchState({ ...switchState, cash: false })}
+            sx={{ color: '#ffffff', opacity: switchState.cash ? 0.6 : 1, cursor: 'pointer' }}
+          >
             Cash
           </Typography>
           <SwitchPrimary
@@ -64,12 +67,18 @@ export const Cash = () => {
             name="cash"
             inputProps={{ 'aria-label': 'ant design' }}
           />
-          <Typography sx={{ color: '#ffffff', opacity: switchState.cash ? 1 : 0.6 }}>
+          <Typography
+            onClick={() => setSwitchState({ ...switchState, cash: true })}
+            sx={{ color: '#ffffff', opacity: switchState.cash ? 1 : 0.6, cursor: 'pointer' }}
+          >
             Debt
           </Typography>
         </Stack>
         <Stack direction="row" spacing={1} alignItems="center">
-          <Typography sx={{ color: '#ffffff', opacity: switchState.transaction ? 0.6 : 1 }}>
+          <Typography
+            onClick={() => setSwitchState({ ...switchState, transaction: false })}
+            sx={{ color: '#ffffff', opacity: switchState.transaction ? 0.6 : 1, cursor: 'pointer' }}
+          >
             Transaction
           </Typography>
           <SwitchPrimary
@@ -78,12 +87,18 @@ export const Cash = () => {
             name="transaction"
             inputProps={{ 'aria-label': 'ant design' }}
           />
-          <Typography sx={{ color: '#ffffff', opacity: switchState.transaction ? 1 : 0.6 }}>
+          <Typography
+            onClick={() => setSwitchState({ ...switchState, transaction: true })}
+            sx={{ color: '#ffffff', opacity: switchState.transaction ? 1 : 0.6, cursor: 'pointer' }}
+          >
             Position
           </Typography>
         </Stack>
         <Stack direction="row" spacing={1} alignItems="center">
-          <Typography sx={{ color: '#4ED251', opacity: switchState.deposit ? 0.6 : 1 }}>
+          <Typography
+            onClick={() => setSwitchState({ ...switchState, deposit: false })}
+            sx={{ color: '#4ED251', opacity: switchState.deposit ? 0.6 : 1, cursor: 'pointer' }}
+          >
             Deposit
           </Typography>
           <SwitchSecondary
@@ -92,7 +107,10 @@ export const Cash = () => {
             name="deposit"
             inputProps={{ 'aria-label': 'ant design' }}
           />
-          <Typography sx={{ color: '#F2522F', opacity: switchState.deposit ? 1 : 0.6 }}>
+          <Typography
+            onClick={() => setSwitchState({ ...switchState, deposit: true })}
+            sx={{ color: '#F2522F', opacity: switchState.deposit ? 1 : 0.6, cursor: 'pointer' }}
+          >
             Withdraw{' '}
           </Typography>
         </Stack>
