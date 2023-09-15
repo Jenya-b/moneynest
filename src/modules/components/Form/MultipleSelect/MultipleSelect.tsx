@@ -35,10 +35,10 @@ const styles = {
   },
 };
 
-function getStyles(name: string, personName: string[], theme: Theme) {
+function getStyles(name: string, selectValue: string[], theme: Theme) {
   return {
     fontWeight:
-      personName.indexOf(name) === -1
+      selectValue.indexOf(name) === -1
         ? theme.typography.fontWeightRegular
         : theme.typography.fontWeightMedium,
   };
@@ -103,9 +103,9 @@ export const MultipleSelect = ({
         <MenuItem style={{ fontStyle: 'normal' }} disabled value="">
           <em style={{ fontStyle: 'normal' }}>{placeholder}</em>
         </MenuItem>
-        {data.map((article, i) => (
-          <MenuItem key={i} value={article} style={getStyles(article, selectValue, theme)}>
-            {article}
+        {data.map((item, i) => (
+          <MenuItem key={i} value={item} style={getStyles(item, selectValue, theme)}>
+            {item}
           </MenuItem>
         ))}
       </Select>

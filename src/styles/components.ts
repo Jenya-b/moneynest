@@ -5,6 +5,7 @@ export const Main = styled.main`
 `;
 
 export const Label = styled.label`
+  color: ${({ theme }) => theme.colors.textPrimary};
   display: block;
   position: relative;
   font-size: 14px;

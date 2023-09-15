@@ -11,6 +11,7 @@ import noActiveIcon from 'source/images/icons/search.svg';
 import closeIcon from 'source/images/icons/closeModal.svg';
 import inputIcon from 'source/images/icons/inputIcon.svg';
 import inputDateIcon from 'source/images/icons/inputDate.svg';
+import costBottomIcon from 'source/images/icons/costBottom.svg';
 
 const footerIcon = {
   reddit: redditIcon,
@@ -34,4 +35,5 @@ export {
   closeIcon,
   inputIcon,
   inputDateIcon,
+  costBottomIcon,
 };
