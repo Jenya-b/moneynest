@@ -17,7 +17,7 @@ export const Input = styled.input`
   margin-top: 4px;
   padding: 0 10px;
   color: ${({ theme }) => theme.colors.textPrimary};
-  height: 24px;
+  height: 35px;
   width: 100%;
   border-radius: 5px;
   border: 1px solid #7171c0;

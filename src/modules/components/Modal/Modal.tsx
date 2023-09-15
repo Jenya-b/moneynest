@@ -9,6 +9,7 @@ interface ModalProps {
 export const BasicModal = ({ open, handleClose, children }: ModalProps) => {
   return (
     <Modal
+      sx={{ overflow: 'auto', margin: '70px 0' }}
       open={open}
       onClose={handleClose}
       aria-labelledby="modal-modal-title"

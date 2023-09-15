@@ -13,8 +13,8 @@ export const StyledInput = styled(Input)`
 
 export const ClearBtn = styled.button`
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  bottom: 10px;
+  right: 7px;
   width: 14px;
   height: 14px;
   background: url(${closeIcon}) no-repeat;
@@ -24,8 +24,8 @@ export const ClearBtn = styled.button`
 
 export const IconInput = styled.img`
   position: absolute;
-  bottom: 2px;
-  left: 2px;
+  bottom: 7px;
+  left: 5px;
   width: 20px;
   height: 20px;
   background-size: contain;

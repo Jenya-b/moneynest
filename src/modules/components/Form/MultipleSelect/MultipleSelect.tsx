@@ -13,7 +13,7 @@ const styles = {
   background: '#191934',
   color: '#4F4F4F',
   borderRadius: '5px',
-  height: '24px',
+  height: '35px',
   width: '100%',
 
   '&': {

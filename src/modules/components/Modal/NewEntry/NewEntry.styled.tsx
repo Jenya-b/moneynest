@@ -9,10 +9,11 @@ interface TabProps {
 }
 
 export const Wrapper = styled.div`
+  overflow: auto;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   max-width: 624px;
   width: 100%;
   overflow: hidden;
@@ -22,7 +23,7 @@ export const Wrapper = styled.div`
 
 export const Tabs = styled.div`
   position: relative;
-  height: 20px;
+  height: 30px;
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
   font-style: normal;
@@ -31,7 +32,9 @@ export const Tabs = styled.div`
 `;
 
 export const Tab = styled.div<TabProps>`
+  padding-top: 5px;
   cursor: pointer;
+  opacity: 0.6;
   position: absolute;
   top: 1px;
   width: calc(122px + 14px);
@@ -62,6 +65,7 @@ export const Tab = styled.div<TabProps>`
   }
   &.active {
     color: ${({ theme }) => theme.colors.textPrimary};
+    opacity: 1;
   }
 `;
 
@@ -102,8 +106,7 @@ export const SwitchPrimary = styledMUI((props: SwitchProps) => (
       transform: 'translateX(16px)',
       color: '#292949',
       '& + .MuiSwitch-track': {
-        backgroundColor:
-          theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.40)' : 'rgba(255, 255, 255, 0.40)',
+        backgroundColor: theme.palette.mode === 'dark' ? '#fff' : '#fff',
         opacity: 1,
         border: 0,
       },
@@ -139,8 +142,7 @@ export const SwitchSecondary = styledMUI((props: SwitchProps) => (
       transform: 'translateX(16px)',
       color: '#292949',
       '& + .MuiSwitch-track': {
-        backgroundColor:
-          theme.palette.mode === 'dark' ? 'rgba(242, 82, 47, 0.6)' : 'rgba(242, 82, 47, 0.6)',
+        backgroundColor: theme.palette.mode === 'dark' ? '#F2522F' : '#F2522F',
         opacity: 1,
         border: 0,
       },

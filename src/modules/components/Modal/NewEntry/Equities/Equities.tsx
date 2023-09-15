@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 
 import { ButtonPrimary, ButtonSecondary, SwitchPrimary, SwitchSecondary } from '../NewEntry.styled';
@@ -28,6 +28,10 @@ export const Equities = () => {
   const [accountHolder, setAccountHolder] = useState<string[]>([]);
   const [accountNumber, setAccountNumber] = useState<string[]>([]);
   const [views, setViews] = useState<string[]>([]);
+  const [switchState, setSwitchState] = useState({
+    transaction: true,
+    buy: true,
+  });
 
   const handleChangeName = (e: FormEvent<HTMLInputElement>) => setName(e.currentTarget.value);
 
@@ -61,21 +65,44 @@ export const Equities = () => {
 
   const handleClearIsin = () => setIsin('');
 
+  const handleSwitchChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSwitchState({
+      ...switchState,
+      [event.target.name]: event.target.checked,
+    });
+  };
+
   return (
     <>
       <Box sx={{ height: '50px', display: 'flex', alignItems: 'center', columnGap: '32px' }}>
         <Stack direction="row" spacing={1} alignItems="center">
-          <Typography>Transaction</Typography>
-          <SwitchPrimary defaultChecked inputProps={{ 'aria-label': 'ant design' }} />
-          <Typography sx={{ color: 'rgba(255, 255, 255, 0.40)' }}>Position</Typography>
+          <Typography sx={{ color: '#ffffff', opacity: switchState.transaction ? 0.6 : 1 }}>
+            Transaction
+          </Typography>
+          <SwitchPrimary
+            checked={switchState.transaction}
+            onChange={handleSwitchChange}
+            name="transaction"
+            inputProps={{ 'aria-label': 'ant design' }}
+          />
+          <Typography sx={{ color: '#ffffff', opacity: switchState.transaction ? 1 : 0.6 }}>
+            Position
+          </Typography>
         </Stack>
         <Stack direction="row" spacing={1} alignItems="center">
-          <Typography sx={{ color: '#4ED251' }}>Buy</Typography>
-          <SwitchSecondary defaultChecked inputProps={{ 'aria-label': 'ant design' }} />
-          <Typography sx={{ color: 'rgba(242, 82, 47, 0.6)' }}>Sell</Typography>
+          <Typography sx={{ color: '#4ED251', opacity: switchState.buy ? 0.6 : 1 }}>Buy</Typography>
+          <SwitchSecondary
+            checked={switchState.buy}
+            inputProps={{ 'aria-label': 'ant design' }}
+            onChange={handleSwitchChange}
+            name="buy"
+          />
+          <Typography sx={{ color: '#F2522F', opacity: switchState.buy ? 1 : 0.6 }}>
+            Sell
+          </Typography>
         </Stack>
       </Box>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} mt={1}>
         <Grid item xs={12}>
           <Input
             value={name}

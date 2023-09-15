@@ -2,7 +2,7 @@ import { Box, Grid, Stack, Typography } from '@mui/material';
 
 import { Input } from 'modules/components/Form/Input/Input';
 import { ButtonPrimary, ButtonSecondary, SwitchPrimary, SwitchSecondary } from '../NewEntry.styled';
-import { FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { inputDateIcon } from 'constants/images';
 import { InputTextPosition, InputType } from 'modules/components/Form/model';
 import { MultipleSelect } from 'modules/components/Form/MultipleSelect/MultipleSelect';
@@ -19,6 +19,11 @@ export const Cash = () => {
   const [custodian, setCustodian] = useState<string[]>([]);
   const [accountHolder, setAccountHolder] = useState<string[]>([]);
   const [accountNumber, setAccountNumber] = useState<string[]>([]);
+  const [switchState, setSwitchState] = useState({
+    cash: true,
+    transaction: true,
+    deposit: true,
+  });
 
   const handleChangeExecutionDate = (e: FormEvent<HTMLInputElement>) =>
     setExecutionDate(e.currentTarget.value);
@@ -39,26 +44,60 @@ export const Cash = () => {
 
   const handleClearFeeValue = () => setFeeValue('');
 
+  const handleSwitchChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSwitchState({
+      ...switchState,
+      [event.target.name]: event.target.checked,
+    });
+  };
+
   return (
     <>
       <Box sx={{ height: '50px', display: 'flex', alignItems: 'center', columnGap: '32px' }}>
         <Stack direction="row" spacing={1} alignItems="center">
-          <Typography>Cash</Typography>
-          <SwitchPrimary defaultChecked inputProps={{ 'aria-label': 'ant design' }} />
-          <Typography sx={{ color: 'rgba(255, 255, 255, 0.40)' }}>Debt</Typography>
+          <Typography sx={{ color: '#ffffff', opacity: switchState.cash ? 0.6 : 1 }}>
+            Cash
+          </Typography>
+          <SwitchPrimary
+            checked={switchState.cash}
+            onChange={handleSwitchChange}
+            name="cash"
+            inputProps={{ 'aria-label': 'ant design' }}
+          />
+          <Typography sx={{ color: '#ffffff', opacity: switchState.cash ? 1 : 0.6 }}>
+            Debt
+          </Typography>
         </Stack>
         <Stack direction="row" spacing={1} alignItems="center">
-          <Typography>Transaction</Typography>
-          <SwitchPrimary defaultChecked inputProps={{ 'aria-label': 'ant design' }} />
-          <Typography sx={{ color: 'rgba(255, 255, 255, 0.40)' }}>Position</Typography>
+          <Typography sx={{ color: '#ffffff', opacity: switchState.transaction ? 0.6 : 1 }}>
+            Transaction
+          </Typography>
+          <SwitchPrimary
+            checked={switchState.transaction}
+            onChange={handleSwitchChange}
+            name="transaction"
+            inputProps={{ 'aria-label': 'ant design' }}
+          />
+          <Typography sx={{ color: '#ffffff', opacity: switchState.transaction ? 1 : 0.6 }}>
+            Position
+          </Typography>
         </Stack>
         <Stack direction="row" spacing={1} alignItems="center">
-          <Typography sx={{ color: '#4ED251' }}>Deposit</Typography>
-          <SwitchSecondary defaultChecked inputProps={{ 'aria-label': 'ant design' }} />
-          <Typography sx={{ color: 'rgba(242, 82, 47, 0.6)' }}>Withdraw </Typography>
+          <Typography sx={{ color: '#4ED251', opacity: switchState.deposit ? 0.6 : 1 }}>
+            Deposit
+          </Typography>
+          <SwitchSecondary
+            checked={switchState.deposit}
+            onChange={handleSwitchChange}
+            name="deposit"
+            inputProps={{ 'aria-label': 'ant design' }}
+          />
+          <Typography sx={{ color: '#F2522F', opacity: switchState.deposit ? 1 : 0.6 }}>
+            Withdraw{' '}
+          </Typography>
         </Stack>
       </Box>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} mt={1}>
         <Grid item xs={6}>
           <Input
             value={executionDate}
