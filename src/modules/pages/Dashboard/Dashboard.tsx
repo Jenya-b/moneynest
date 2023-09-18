@@ -131,7 +131,14 @@ export const DashboardPage = () => {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
-                <Tooltip />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: '#292949',
+                    border: 'none',
+                    borderRadius: '10px',
+                  }}
+                  labelStyle={{ color: '#fff', marginBottom: '5px' }}
+                />
                 {perfomanceChecked.length
                   ? perfomanceParams
                       .filter(({ name }) => perfomanceChecked.includes(name))
@@ -171,7 +178,15 @@ export const DashboardPage = () => {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
-                <Tooltip />
+                <Tooltip
+                  labelStyle={{ color: '#fff', marginBottom: '5px' }}
+                  itemStyle={{ color: '#fff' }}
+                  contentStyle={{
+                    backgroundColor: '#292949',
+                    border: 'none',
+                    borderRadius: '10px',
+                  }}
+                />
                 <ReferenceLine y={0} stroke="#000" />
                 <Bar dataKey="cash">
                   {cashFlowAnalysisData.map((entry, index) => (

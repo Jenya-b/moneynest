@@ -85,4 +85,8 @@ export default createGlobalStyle`
 	.recharts-sector {
 		stroke: none;
 	}
+	.recharts-tooltip-cursor {
+		fill: ${({ theme }) => theme.colors.bgTertiary};
+		opacity: 0.5;
+	}
 `;
