@@ -5,22 +5,22 @@ export enum Perfomance {
 }
 
 export interface DashboardParam {
-  name: Perfomance;
-  color: string;
+  dataKey: Perfomance;
+  stroke: string;
 }
 
 export const perfomanceParams: DashboardParam[] = [
   {
-    name: Perfomance.Procter,
-    color: '#8884d8',
+    dataKey: Perfomance.Procter,
+    stroke: '#8884d8',
   },
   {
-    name: Perfomance.SP500,
-    color: '#82ca9d',
+    dataKey: Perfomance.SP500,
+    stroke: '#82ca9d',
   },
   {
-    name: Perfomance.Nasdaq,
-    color: '#b3615b',
+    dataKey: Perfomance.Nasdaq,
+    stroke: '#b3615b',
   },
 ];
 

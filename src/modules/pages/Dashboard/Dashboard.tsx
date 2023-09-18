@@ -5,8 +5,6 @@ import {
   BarChart,
   CartesianGrid,
   Cell,
-  Line,
-  LineChart,
   ReferenceLine,
   ResponsiveContainer,
   Tooltip,
@@ -41,6 +39,16 @@ import { MultipleSelect } from 'modules/components/Form/MultipleSelect/MultipleS
 import { Table } from './Table/Table';
 import { TRow } from './Table/Table.styled';
 import { PieChart } from 'modules/components/Charts/Pie/Pie';
+import { Chart, LineChartProps } from 'modules/components/Charts/Line/Line';
+
+const chartCategoricalAxisProps: LineChartProps<(typeof perfomanceData)[number]>['axis'] = {
+  x: {
+    dataKey: 'name',
+    type: 'category',
+    allowDataOverflow: true,
+    interval: 0,
+  },
+};
 
 export const DashboardPage = () => {
   const location = useLocation();
@@ -118,41 +126,18 @@ export const DashboardPage = () => {
         <ChartBlock>
           <ChartTitle>Performance </ChartTitle>
           <ChartWrap>
-            <ResponsiveContainer debounce={1} width="99%" height={384}>
-              <LineChart
-                data={perfomanceData}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: '#292949',
-                    border: 'none',
-                    borderRadius: '10px',
-                  }}
-                  labelStyle={{ color: '#fff', marginBottom: '5px' }}
-                />
-                {perfomanceChecked.length
+            <Chart
+              data={perfomanceData}
+              lines={
+                !perfomanceChecked.length
                   ? perfomanceParams
-                      .filter(({ name }) => perfomanceChecked.includes(name))
-                      .map(({ color, name }) => (
-                        <Line key={name} type="monotone" dataKey={name} stroke={color} />
-                      ))
-                  : perfomanceParams.map(({ color, name }) => (
-                      <Line key={name} type="monotone" dataKey={name} stroke={color} />
-                    ))}
-              </LineChart>
-            </ResponsiveContainer>
+                  : perfomanceParams.filter((item) => perfomanceChecked.includes(item.dataKey))
+              }
+              axis={chartCategoricalAxisProps}
+            />
             <ChartControl>
               <MultipleSelect
-                data={perfomanceParams.map(({ name }) => name)}
+                data={perfomanceParams.map(({ dataKey }) => dataKey)}
                 isMultiple={true}
                 placeholder="Param"
                 label="Param"
