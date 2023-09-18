@@ -89,4 +89,21 @@ export default createGlobalStyle`
 		fill: ${({ theme }) => theme.colors.bgTertiary};
 		opacity: 0.5;
 	}
+	.recharts-cartesian-grid-vertical {
+		display: none;
+	}
+	.recharts-cartesian-grid-horizontal {
+		opacity: 0.5;
+
+		line {
+			stroke: #7171C0;
+
+			:nth-child(1) {
+				display: none;
+			}
+		}
+	}
+	.recharts-line-dot {
+		display: none;
+	}
 `;
