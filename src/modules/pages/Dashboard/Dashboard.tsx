@@ -7,8 +7,6 @@ import {
   Cell,
   Line,
   LineChart,
-  Pie,
-  PieChart,
   ReferenceLine,
   ResponsiveContainer,
   Tooltip,
@@ -40,9 +38,9 @@ import {
   cashFlowAnalysisData,
 } from 'constants/dashbord';
 import { MultipleSelect } from 'modules/components/Form/MultipleSelect/MultipleSelect';
-import { PieInfo } from 'modules/components/PieInfo/PieInfo';
 import { Table } from './Table/Table';
 import { TRow } from './Table/Table.styled';
+import { PieChart } from 'modules/components/Charts/Pie/Pie';
 
 export const DashboardPage = () => {
   const location = useLocation();
@@ -107,16 +105,7 @@ export const DashboardPage = () => {
         <ChartBlock>
           <ChartTitle>Assets Structure</ChartTitle>
           <PieChartWrap>
-            <div style={{ position: 'relative' }}>
-              <PieChart width={320} height={300}>
-                <Pie data={assetsStructureData} innerRadius={90} dataKey="value">
-                  {assetsStructureData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-              </PieChart>
-              <PieInfo />
-            </div>
+            <PieChart data={assetsStructureData} />
             <TableBlock>
               <Table
                 data={assetsStructureData}
@@ -198,16 +187,7 @@ export const DashboardPage = () => {
           <ChartBlock>
             <ChartTitle>Geography</ChartTitle>
             <PieChartWrap>
-              <div style={{ position: 'relative' }}>
-                <PieChart width={320} height={300}>
-                  <Pie data={geographyData} innerRadius={90} dataKey="value">
-                    {geographyData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                </PieChart>
-                <PieInfo />
-              </div>
+              <PieChart data={geographyData} />
               <TableBlock>
                 <Table data={geographyData} renderItem={renderGeography} headData={headGeography} />
               </TableBlock>
@@ -216,16 +196,7 @@ export const DashboardPage = () => {
           <ChartBlock>
             <ChartTitle>Industries</ChartTitle>
             <PieChartWrap>
-              <div style={{ position: 'relative' }}>
-                <PieChart width={320} height={300}>
-                  <Pie data={industriesData} innerRadius={90} dataKey="value">
-                    {industriesData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                </PieChart>
-                <PieInfo />
-              </div>
+              <PieChart data={industriesData} />
               <TableBlock>
                 <Table
                   data={industriesData}
