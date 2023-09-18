@@ -80,4 +80,9 @@ export default createGlobalStyle`
 	#root{
 		min-height: 100vh;
 	}
+
+	/* !Rechart */
+	.recharts-sector {
+		stroke: none;
+	}
 `;
