@@ -1,28 +1,9 @@
 import { useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import {
-  Bar,
-  // BarChart,
-  CartesianGrid,
-  Cell,
-  ReferenceLine,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts';
 
 import { Breadcrumbs } from 'modules/components/Breadcrumbs/Breadcrumbs';
 import { Main } from 'styles/components';
-import {
-  ChartBlock,
-  ChartControl,
-  ChartTitle,
-  ChartWrap,
-  Content,
-  PieChartWrap,
-  TableBlock,
-} from './Dashboard.styled';
+import { ChartControl, ChartWrap, Content, PieChartWrap } from './Dashboard.styled';
 import {
   perfomanceParams,
   perfomanceData,
@@ -41,6 +22,7 @@ import { TRow } from './Table/Table.styled';
 import { PieChart } from 'modules/components/Charts/Pie/Pie';
 import { Chart as LineChart, LineChartProps } from 'modules/components/Charts/Line/Line';
 import { Chart as BarChart, BarChartProps } from 'modules/components/Charts/Bar/Bar';
+import { ChartBlock } from './ChartBlock/ChartBlock';
 
 const chartCategoricalAxisProps: LineChartProps<(typeof perfomanceData)[number]>['axis'] = {
   x: {
@@ -120,72 +102,71 @@ export const DashboardPage = () => {
     <Main>
       <Breadcrumbs pathName={location.pathname} />
       <Content>
-        <ChartBlock>
-          <ChartTitle>Assets Structure</ChartTitle>
-          <PieChartWrap>
-            <PieChart data={assetsStructureData} />
-            <TableBlock>
+        <ChartBlock title="Assets Structure">
+          <>
+            <PieChartWrap>
+              <PieChart data={assetsStructureData} />
               <Table
                 data={assetsStructureData}
                 renderItem={renderAssetsStructure}
                 headData={headAssetsStructure}
               />
-            </TableBlock>
-          </PieChartWrap>
+            </PieChartWrap>
+          </>
         </ChartBlock>
-        <ChartBlock>
-          <ChartTitle>Performance </ChartTitle>
-          <ChartWrap>
-            <LineChart
-              data={perfomanceData}
-              lines={
-                !perfomanceChecked.length
-                  ? perfomanceParams
-                  : perfomanceParams.filter((item) => perfomanceChecked.includes(item.dataKey))
-              }
-              axis={chartCategoricalAxisProps}
-            />
-            <ChartControl>
-              <MultipleSelect
-                data={perfomanceParams.map(({ dataKey }) => dataKey)}
-                isMultiple={true}
-                placeholder="Param"
-                label="Param"
-                selectValue={perfomanceChecked}
-                setSelectValue={setPerfomanceChecked}
+        <ChartBlock title="Performance">
+          <>
+            <ChartWrap>
+              <LineChart
+                data={perfomanceData}
+                lines={
+                  !perfomanceChecked.length
+                    ? perfomanceParams
+                    : perfomanceParams.filter((item) => perfomanceChecked.includes(item.dataKey))
+                }
+                axis={chartCategoricalAxisProps}
               />
-            </ChartControl>
-          </ChartWrap>
+              <ChartControl>
+                <MultipleSelect
+                  data={perfomanceParams.map(({ dataKey }) => dataKey)}
+                  isMultiple={true}
+                  placeholder="Param"
+                  label="Param"
+                  selectValue={perfomanceChecked}
+                  setSelectValue={setPerfomanceChecked}
+                />
+              </ChartControl>
+            </ChartWrap>
+          </>
         </ChartBlock>
-        <ChartBlock>
-          <ChartTitle>Cash Flow Analysis </ChartTitle>
-          <ChartWrap>
-            <BarChart data={cashFlowAnalysisData} axis={chartBarAxisProps} />
-            <ChartControl></ChartControl>
-          </ChartWrap>
+        <ChartBlock title="Cash Flow Analysis">
+          <>
+            <ChartWrap>
+              <BarChart data={cashFlowAnalysisData} axis={chartBarAxisProps} />
+              <ChartControl></ChartControl>
+            </ChartWrap>
+          </>
         </ChartBlock>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', columnGap: '8px' }}>
-          <ChartBlock>
-            <ChartTitle>Geography</ChartTitle>
-            <PieChartWrap>
-              <PieChart data={geographyData} />
-              <TableBlock>
+          <ChartBlock title="Geography">
+            <>
+              <PieChartWrap>
+                <PieChart data={geographyData} />
                 <Table data={geographyData} renderItem={renderGeography} headData={headGeography} />
-              </TableBlock>
-            </PieChartWrap>
+              </PieChartWrap>
+            </>
           </ChartBlock>
-          <ChartBlock>
-            <ChartTitle>Industries</ChartTitle>
-            <PieChartWrap>
-              <PieChart data={industriesData} />
-              <TableBlock>
+          <ChartBlock title="Industries">
+            <>
+              <PieChartWrap>
+                <PieChart data={industriesData} />
                 <Table
                   data={industriesData}
                   renderItem={renderIndustries}
                   headData={headIndustries}
                 />
-              </TableBlock>
-            </PieChartWrap>
+              </PieChartWrap>
+            </>
           </ChartBlock>
         </div>
       </Content>
