@@ -160,36 +160,6 @@ export const DashboardPage = () => {
         <ChartBlock>
           <ChartTitle>Cash Flow Analysis </ChartTitle>
           <ChartWrap>
-            {/* <ResponsiveContainer debounce={1} width="99%" height={384}>
-              <BarChart
-                data={cashFlowAnalysisData}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip
-                  labelStyle={{ color: '#fff', marginBottom: '5px' }}
-                  itemStyle={{ color: '#fff' }}
-                  contentStyle={{
-                    backgroundColor: '#292949',
-                    border: 'none',
-                    borderRadius: '10px',
-                  }}
-                />
-                <ReferenceLine y={0} stroke="#000" />
-                <Bar dataKey="cash">
-                  {cashFlowAnalysisData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.cash >= 0 ? '#448FFF' : '#F2522F'} />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer> */}
             <BarChart data={cashFlowAnalysisData} axis={chartBarAxisProps} />
             <ChartControl></ChartControl>
           </ChartWrap>
