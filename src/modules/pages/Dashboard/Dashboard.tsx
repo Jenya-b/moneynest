@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
   Bar,
-  BarChart,
+  // BarChart,
   CartesianGrid,
   Cell,
   ReferenceLine,
@@ -39,9 +39,19 @@ import { MultipleSelect } from 'modules/components/Form/MultipleSelect/MultipleS
 import { Table } from './Table/Table';
 import { TRow } from './Table/Table.styled';
 import { PieChart } from 'modules/components/Charts/Pie/Pie';
-import { Chart, LineChartProps } from 'modules/components/Charts/Line/Line';
+import { Chart as LineChart, LineChartProps } from 'modules/components/Charts/Line/Line';
+import { Chart as BarChart, BarChartProps } from 'modules/components/Charts/Bar/Bar';
 
 const chartCategoricalAxisProps: LineChartProps<(typeof perfomanceData)[number]>['axis'] = {
+  x: {
+    dataKey: 'name',
+    type: 'category',
+    allowDataOverflow: true,
+    interval: 0,
+  },
+};
+
+const chartBarAxisProps: BarChartProps<(typeof cashFlowAnalysisData)[number]>['axis'] = {
   x: {
     dataKey: 'name',
     type: 'category',
@@ -126,7 +136,7 @@ export const DashboardPage = () => {
         <ChartBlock>
           <ChartTitle>Performance </ChartTitle>
           <ChartWrap>
-            <Chart
+            <LineChart
               data={perfomanceData}
               lines={
                 !perfomanceChecked.length
@@ -150,7 +160,7 @@ export const DashboardPage = () => {
         <ChartBlock>
           <ChartTitle>Cash Flow Analysis </ChartTitle>
           <ChartWrap>
-            <ResponsiveContainer debounce={1} width="99%" height={384}>
+            {/* <ResponsiveContainer debounce={1} width="99%" height={384}>
               <BarChart
                 data={cashFlowAnalysisData}
                 margin={{
@@ -179,7 +189,8 @@ export const DashboardPage = () => {
                   ))}
                 </Bar>
               </BarChart>
-            </ResponsiveContainer>
+            </ResponsiveContainer> */}
+            <BarChart data={cashFlowAnalysisData} axis={chartBarAxisProps} />
             <ChartControl></ChartControl>
           </ChartWrap>
         </ChartBlock>
