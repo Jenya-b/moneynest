@@ -1,3 +1,4 @@
+import { ContextMenu } from '../Menu/Menu';
 import { Title, Wrapper } from './ChartBlock.styled';
 
 interface ChartBlockProps {
@@ -8,6 +9,7 @@ interface ChartBlockProps {
 export const ChartBlock = ({ children, title }: ChartBlockProps) => (
   <Wrapper>
     <Title>{title}</Title>
+    <ContextMenu />
     {children}
   </Wrapper>
 );
