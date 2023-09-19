@@ -74,7 +74,15 @@ export const Equities = () => {
 
   return (
     <>
-      <Box sx={{ height: '50px', display: 'flex', alignItems: 'center', columnGap: '32px' }}>
+      <Box
+        sx={{
+          height: '50px',
+          display: 'flex',
+          justifyContent: 'flex-end',
+          alignItems: 'center',
+          columnGap: '32px',
+        }}
+      >
         <Stack direction="row" spacing={1} alignItems="center">
           <Typography
             onClick={() => setSwitchState({ ...switchState, transaction: false })}

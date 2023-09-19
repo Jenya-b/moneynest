@@ -1,11 +1,13 @@
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 
 import { Input } from 'modules/components/Form/Input/Input';
 import { ButtonPrimary, ButtonSecondary, SwitchPrimary, SwitchSecondary } from '../NewEntry.styled';
-import { ChangeEvent, FormEvent, useState } from 'react';
 import { inputDateIcon } from 'constants/images';
 import { InputTextPosition, InputType } from 'modules/components/Form/model';
 import { MultipleSelect } from 'modules/components/Form/MultipleSelect/MultipleSelect';
+import { SwitchType } from '../SwitchType/SwitchType';
+import { CASH_ASSET_TYPE_DATA } from 'constants/modal';
 
 export const Cash = () => {
   const [executionDate, setExecutionDate] = useState('');
@@ -20,10 +22,10 @@ export const Cash = () => {
   const [accountHolder, setAccountHolder] = useState<string[]>([]);
   const [accountNumber, setAccountNumber] = useState<string[]>([]);
   const [switchState, setSwitchState] = useState({
-    cash: true,
     transaction: true,
     deposit: true,
   });
+  const [assetType, setAssetType] = useState('cash');
 
   const handleChangeExecutionDate = (e: FormEvent<HTMLInputElement>) =>
     setExecutionDate(e.currentTarget.value);
@@ -51,70 +53,75 @@ export const Cash = () => {
     });
   };
 
+  const selectAssetType = (item: string) => setAssetType(item);
+
   return (
     <>
-      <Box sx={{ height: '50px', display: 'flex', alignItems: 'center', columnGap: '32px' }}>
-        <Stack direction="row" spacing={1} alignItems="center">
-          <Typography
-            onClick={() => setSwitchState({ ...switchState, cash: false })}
-            sx={{ color: '#ffffff', opacity: switchState.cash ? 0.6 : 1, cursor: 'pointer' }}
-          >
-            Cash
-          </Typography>
-          <SwitchPrimary
-            checked={switchState.cash}
-            onChange={handleSwitchChange}
-            name="cash"
-            inputProps={{ 'aria-label': 'ant design' }}
-          />
-          <Typography
-            onClick={() => setSwitchState({ ...switchState, cash: true })}
-            sx={{ color: '#ffffff', opacity: switchState.cash ? 1 : 0.6, cursor: 'pointer' }}
-          >
-            Debt
-          </Typography>
-        </Stack>
-        <Stack direction="row" spacing={1} alignItems="center">
-          <Typography
-            onClick={() => setSwitchState({ ...switchState, transaction: false })}
-            sx={{ color: '#ffffff', opacity: switchState.transaction ? 0.6 : 1, cursor: 'pointer' }}
-          >
-            Transaction
-          </Typography>
-          <SwitchPrimary
-            checked={switchState.transaction}
-            onChange={handleSwitchChange}
-            name="transaction"
-            inputProps={{ 'aria-label': 'ant design' }}
-          />
-          <Typography
-            onClick={() => setSwitchState({ ...switchState, transaction: true })}
-            sx={{ color: '#ffffff', opacity: switchState.transaction ? 1 : 0.6, cursor: 'pointer' }}
-          >
-            Position
-          </Typography>
-        </Stack>
-        <Stack direction="row" spacing={1} alignItems="center">
-          <Typography
-            onClick={() => setSwitchState({ ...switchState, deposit: false })}
-            sx={{ color: '#4ED251', opacity: switchState.deposit ? 0.6 : 1, cursor: 'pointer' }}
-          >
-            Deposit
-          </Typography>
-          <SwitchSecondary
-            checked={switchState.deposit}
-            onChange={handleSwitchChange}
-            name="deposit"
-            inputProps={{ 'aria-label': 'ant design' }}
-          />
-          <Typography
-            onClick={() => setSwitchState({ ...switchState, deposit: true })}
-            sx={{ color: '#F2522F', opacity: switchState.deposit ? 1 : 0.6, cursor: 'pointer' }}
-          >
-            Withdraw{' '}
-          </Typography>
-        </Stack>
+      <Box
+        sx={{
+          height: '50px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <SwitchType
+          data={CASH_ASSET_TYPE_DATA}
+          selectedType={assetType}
+          handleClick={selectAssetType}
+        />
+        <Box sx={{ display: 'flex', alignItems: 'center', columnGap: '32px' }}>
+          <Stack direction="row" spacing={1} alignItems="center">
+            <Typography
+              onClick={() => setSwitchState({ ...switchState, transaction: false })}
+              sx={{
+                color: '#ffffff',
+                opacity: switchState.transaction ? 0.6 : 1,
+                cursor: 'pointer',
+              }}
+            >
+              Transaction
+            </Typography>
+            <SwitchPrimary
+              checked={switchState.transaction}
+              onChange={handleSwitchChange}
+              name="transaction"
+              inputProps={{ 'aria-label': 'ant design' }}
+            />
+            <Typography
+              onClick={() => setSwitchState({ ...switchState, transaction: true })}
+              sx={{
+                color: '#ffffff',
+                opacity: switchState.transaction ? 1 : 0.6,
+                cursor: 'pointer',
+              }}
+            >
+              Position
+            </Typography>
+          </Stack>
+          <Stack direction="row" spacing={1} alignItems="center">
+            <Typography
+              onClick={() => setSwitchState({ ...switchState, deposit: false })}
+              sx={{ color: '#4ED251', opacity: switchState.deposit ? 0.6 : 1, cursor: 'pointer' }}
+            >
+              Deposit
+            </Typography>
+            <SwitchSecondary
+              checked={switchState.deposit}
+              onChange={handleSwitchChange}
+              name="deposit"
+              inputProps={{ 'aria-label': 'ant design' }}
+            />
+            <Typography
+              onClick={() => setSwitchState({ ...switchState, deposit: true })}
+              sx={{ color: '#F2522F', opacity: switchState.deposit ? 1 : 0.6, cursor: 'pointer' }}
+            >
+              Withdraw{' '}
+            </Typography>
+          </Stack>
+        </Box>
       </Box>
+
       <Grid container spacing={2} mt={1}>
         <Grid item xs={6}>
           <Input
