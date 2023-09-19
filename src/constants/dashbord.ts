@@ -173,3 +173,13 @@ export const financingData: AssetsStructureData[] = [
   { name: 'Short Term Loans', value: 150, color: '#CB528B' },
   { name: 'Other', value: 100, color: '#308D97' },
 ];
+
+export const headCurrencyPositioning = ['Symbol/Name', 'Amount', 'Equivalent', 'Allocation'];
+
+export const currencyPositioningData: AssetsStructureData[] = [
+  { name: 'USD', value: 500, color: '#448FFF' },
+  { name: 'EUR', value: 500, color: '#4ED251' },
+  { name: 'GBP', value: 450, color: '#403AEF' },
+  { name: 'CNY', value: 150, color: '#CB528B' },
+  { name: 'JPY', value: 50, color: '#308D97' },
+];

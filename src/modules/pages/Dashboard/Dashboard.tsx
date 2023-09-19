@@ -9,6 +9,7 @@ import { AssetsStructureBlock } from './AssetsStructureBlock/AssetsStructureBloc
 import { GeographyBlock } from './GeographyBlock/GeographyBlock';
 import { IndustriesBlock } from './IndustriesBlock/IndustriesBlock';
 import { FinancingBlock } from './FinancingBlock/FinancingBlock';
+import { CurrencyPositioningBlock } from './CurrencyPositioningBlock/CurrencyPositioningBlock';
 
 export const DashboardPage = () => {
   const location = useLocation();
@@ -21,6 +22,7 @@ export const DashboardPage = () => {
         <PerfomanceBlock />
         <FinancingBlock />
         <CashFlowBlock />
+        <CurrencyPositioningBlock />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', columnGap: '8px' }}>
           <GeographyBlock />
           <IndustriesBlock />
