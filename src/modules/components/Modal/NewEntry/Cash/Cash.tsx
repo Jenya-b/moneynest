@@ -6,7 +6,7 @@ import { ButtonPrimary, ButtonSecondary, SwitchPrimary, SwitchSecondary } from '
 import { inputDateIcon } from 'constants/images';
 import { InputTextPosition, InputType } from 'modules/components/Form/model';
 import { MultipleSelect } from 'modules/components/Form/MultipleSelect/MultipleSelect';
-import { SwitchType } from '../SwitchType/SwitchType';
+import { SwitchType } from '../../../SwitchType/SwitchType';
 import { CASH_ASSET_TYPE_DATA } from 'constants/modal';
 
 export const Cash = () => {

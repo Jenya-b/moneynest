@@ -8,7 +8,7 @@ interface SwitchTypeProps {
 }
 
 export const SwitchType = ({ data, handleClick, selectedType }: SwitchTypeProps) => (
-  <Box sx={{ display: 'flex', alignItems: 'center', columnGap: '4px' }}>
+  <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px' }}>
     {data.map((item) => (
       <Switch key={item} active={item === selectedType} onClick={() => handleClick(item)}>
         {item}

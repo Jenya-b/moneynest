@@ -25,4 +25,11 @@ export const PieChartWrap = styled.div`
   background: #171730;
 `;
 
-export const ChartControl = styled.div``;
+export const ChartControl = styled.div`
+  padding: 24px 12px;
+  background: ${({ theme }) => theme.colors.bgTertiary};
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+`;

@@ -1,12 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { Breadcrumbs } from 'modules/components/Breadcrumbs/Breadcrumbs';
 import { Main } from 'styles/components';
 import { ChartControl, ChartWrap, Content, PieChartWrap } from './Dashboard.styled';
 import {
-  perfomanceParams,
-  perfomanceData,
   assetsStructureData,
   headAssetsStructure,
   AssetsStructureData,
@@ -16,22 +14,12 @@ import {
   headIndustries,
   cashFlowAnalysisData,
 } from 'constants/dashbord';
-import { MultipleSelect } from 'modules/components/Form/MultipleSelect/MultipleSelect';
 import { Table } from './Table/Table';
 import { TRow } from './Table/Table.styled';
 import { PieChart } from 'modules/components/Charts/Pie/Pie';
-import { Chart as LineChart, LineChartProps } from 'modules/components/Charts/Line/Line';
 import { Chart as BarChart, BarChartProps } from 'modules/components/Charts/Bar/Bar';
 import { ChartBlock } from './ChartBlock/ChartBlock';
-
-const chartCategoricalAxisProps: LineChartProps<(typeof perfomanceData)[number]>['axis'] = {
-  x: {
-    dataKey: 'name',
-    type: 'category',
-    allowDataOverflow: true,
-    interval: 0,
-  },
-};
+import { PerfomanceBlock } from './PerfomanceBlock/PerfomanceBlock';
 
 const chartBarAxisProps: BarChartProps<(typeof cashFlowAnalysisData)[number]>['axis'] = {
   x: {
@@ -44,7 +32,6 @@ const chartBarAxisProps: BarChartProps<(typeof cashFlowAnalysisData)[number]>['a
 
 export const DashboardPage = () => {
   const location = useLocation();
-  const [perfomanceChecked, setPerfomanceChecked] = useState<string[]>([]);
   const assetsResult = useMemo(
     () =>
       assetsStructureData.reduce(
@@ -114,31 +101,7 @@ export const DashboardPage = () => {
             </PieChartWrap>
           </>
         </ChartBlock>
-        <ChartBlock title="Performance">
-          <>
-            <ChartWrap>
-              <LineChart
-                data={perfomanceData}
-                lines={
-                  !perfomanceChecked.length
-                    ? perfomanceParams
-                    : perfomanceParams.filter((item) => perfomanceChecked.includes(item.dataKey))
-                }
-                axis={chartCategoricalAxisProps}
-              />
-              <ChartControl>
-                <MultipleSelect
-                  data={perfomanceParams.map(({ dataKey }) => dataKey)}
-                  isMultiple={true}
-                  placeholder="Param"
-                  label="Param"
-                  selectValue={perfomanceChecked}
-                  setSelectValue={setPerfomanceChecked}
-                />
-              </ChartControl>
-            </ChartWrap>
-          </>
-        </ChartBlock>
+        <PerfomanceBlock />
         <ChartBlock title="Cash Flow Analysis">
           <>
             <ChartWrap>

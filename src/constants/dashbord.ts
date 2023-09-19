@@ -1,3 +1,5 @@
+export const PERIODS_OF_TIME = ['daily', 'monthly', 'quaterly', 'annually'];
+
 export enum Perfomance {
   Procter = 'procter',
   SP500 = 'sp500',
