@@ -163,3 +163,13 @@ export const cashFlowAnalysisData = [
     cash: 2490,
   },
 ];
+
+export const headFinancing = ['Source/Description', 'Equivalent', 'Cost', 'Allocation'];
+
+export const financingData: AssetsStructureData[] = [
+  { name: 'Savings', value: 900, color: '#448FFF' },
+  { name: 'Loans', value: 300, color: '#4ED251' },
+  { name: 'Repo', value: 150, color: '#403AEF' },
+  { name: 'Short Term Loans', value: 150, color: '#CB528B' },
+  { name: 'Other', value: 100, color: '#308D97' },
+];

@@ -28,6 +28,7 @@ export const TRow = styled.div<TableProps>`
   grid-template-columns: repeat(${({ columns }) => columns}, 1fr);
   align-items: center;
   border-bottom: 1px solid #292949;
+  color: ${({ theme }) => theme.colors.textPrimary};
 
   ::before {
     position: absolute;
