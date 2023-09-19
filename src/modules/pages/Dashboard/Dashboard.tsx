@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import { Breadcrumbs } from 'modules/components/Breadcrumbs/Breadcrumbs';
 import { Main } from 'styles/components';
-import { ChartControl, ChartWrap, Content, PieChartWrap } from './Dashboard.styled';
+import { Content, PieChartWrap } from './Dashboard.styled';
 import {
   assetsStructureData,
   headAssetsStructure,
@@ -12,23 +12,13 @@ import {
   geographyData,
   industriesData,
   headIndustries,
-  cashFlowAnalysisData,
 } from 'constants/dashbord';
 import { Table } from './Table/Table';
 import { TRow } from './Table/Table.styled';
 import { PieChart } from 'modules/components/Charts/Pie/Pie';
-import { Chart as BarChart, BarChartProps } from 'modules/components/Charts/Bar/Bar';
 import { ChartBlock } from './ChartBlock/ChartBlock';
 import { PerfomanceBlock } from './PerfomanceBlock/PerfomanceBlock';
-
-const chartBarAxisProps: BarChartProps<(typeof cashFlowAnalysisData)[number]>['axis'] = {
-  x: {
-    dataKey: 'name',
-    type: 'category',
-    allowDataOverflow: true,
-    interval: 0,
-  },
-};
+import { CashFlowBlock } from './CashFlowBlock/CashFlowBlock';
 
 export const DashboardPage = () => {
   const location = useLocation();
@@ -102,14 +92,7 @@ export const DashboardPage = () => {
           </>
         </ChartBlock>
         <PerfomanceBlock />
-        <ChartBlock title="Cash Flow Analysis">
-          <>
-            <ChartWrap>
-              <BarChart data={cashFlowAnalysisData} axis={chartBarAxisProps} />
-              <ChartControl></ChartControl>
-            </ChartWrap>
-          </>
-        </ChartBlock>
+        <CashFlowBlock />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', columnGap: '8px' }}>
           <ChartBlock title="Geography">
             <>
