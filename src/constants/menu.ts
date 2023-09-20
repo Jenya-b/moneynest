@@ -7,8 +7,8 @@ export const menu = [
     dropDownMenu: [],
   },
   {
-    title: 'Assets',
-    path: '/assets',
+    title: 'Portfolios',
+    path: '/portfolios',
     dropDownMenu: [],
   },
   {
@@ -76,7 +76,7 @@ export const footerMenu = [
 ];
 
 export enum MenuEnum {
-  assets = 'Assets',
+  portfolios = 'Portfolios',
   collections = 'Collections',
   tools = 'Tools',
   'isin-search' = 'ISIN search',

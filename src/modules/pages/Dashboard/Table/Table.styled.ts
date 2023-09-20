@@ -3,7 +3,7 @@ import styled from 'styled-components';
 interface TableProps {
   columns: number;
   value?: number;
-  color?: string;
+  bgColor?: string;
 }
 
 export const Wrapper = styled.div``;
@@ -37,6 +37,23 @@ export const TRow = styled.div<TableProps>`
     left: 0;
     width: ${({ value }) => value}%;
     height: 4px;
-    background: ${({ color }) => color};
+    background: ${({ bgColor }) => bgColor};
   }
+`;
+
+interface TitleTableProps {
+  bgColor?: string;
+  borderColor?: string;
+  textColor?: string;
+}
+
+export const TitleTable = styled.p<TitleTableProps>`
+  width: max-content;
+  padding: 4px 8px;
+  background: ${({ bgColor }) => bgColor};
+  color: ${({ textColor }) => textColor};
+  border: ${({ borderColor }) => (borderColor ? `1px solid ${borderColor}` : null)};
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-weight: 700;
 `;

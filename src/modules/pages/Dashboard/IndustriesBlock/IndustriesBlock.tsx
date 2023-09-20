@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
 
 import { PieChart } from 'modules/components/Charts/Pie/Pie';
-import { ChartBlock } from '../ChartBlock/ChartBlock';
+import { ChartBlock } from '../../../components/ChartBlock/ChartBlock';
 import { PieChartWrap } from '../Dashboard.styled';
 import { AssetsStructureData, headIndustries, industriesData } from 'constants/dashbord';
 import { Table } from '../Table/Table';
-import { TRow } from '../Table/Table.styled';
+import { TRow, TitleTable } from '../Table/Table.styled';
 
 export const IndustriesBlock = () => {
   const industriesResult = useMemo(
@@ -19,9 +19,11 @@ export const IndustriesBlock = () => {
       key={name}
       columns={headIndustries.length}
       value={(100 / industriesResult) * value}
-      color={color}
+      color={color?.bg}
     >
-      <div style={{ color }}>{name}</div>
+      <TitleTable bgColor={color?.bg} borderColor={color?.border} textColor={color?.text}>
+        {name}
+      </TitleTable>
     </TRow>
   );
 

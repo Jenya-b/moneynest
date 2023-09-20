@@ -1,16 +1,17 @@
 import { useMemo } from 'react';
 
 import { PieChart } from 'modules/components/Charts/Pie/Pie';
-import { ChartBlock } from '../ChartBlock/ChartBlock';
+import { ChartBlock } from '../../../components/ChartBlock/ChartBlock';
 import { PieChartWrap } from '../Dashboard.styled';
 import { AssetsStructureData, assetsStructureData, headAssetsStructure } from 'constants/dashbord';
 import { Table } from '../Table/Table';
-import { TRow } from '../Table/Table.styled';
+import { TRow, TitleTable } from '../Table/Table.styled';
 import { colors } from 'styles/colors';
 import styled from 'styled-components';
 import { topIcon } from 'constants/images';
 
-const TopText = styled.p`
+const TopText = styled.span`
+  display: block;
   position: relative;
   padding-left: 20px;
 
@@ -43,9 +44,11 @@ export const AssetsStructureBlock = () => {
       key={name}
       columns={headAssetsStructure.length}
       value={(100 / result) * value}
-      color={color}
+      bgColor={color?.bg}
     >
-      <p style={{ color }}>{name}</p>
+      <TitleTable bgColor={color?.bg} borderColor={color?.border} textColor={color?.text}>
+        {name}
+      </TitleTable>
       <p style={{ display: 'flex', flexDirection: 'column', rowGap: '3px' }}>
         <span>$00,000,000,000,000.00</span>
         <span style={{ opacity: 0.6 }}>$00,000,000,000,000.00</span>

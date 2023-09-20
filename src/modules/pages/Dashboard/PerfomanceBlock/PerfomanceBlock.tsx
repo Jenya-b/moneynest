@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { Box } from '@mui/material';
 
-import { ChartBlock } from '../ChartBlock/ChartBlock';
+import { ChartBlock } from '../../../components/ChartBlock/ChartBlock';
 import { ChartControl, ChartWrap } from '../Dashboard.styled';
 import { PERIODS_OF_TIME, perfomanceData, perfomanceParams } from 'constants/dashbord';
 import { Chart as LineChart, LineChartProps } from 'modules/components/Charts/Line/Line';

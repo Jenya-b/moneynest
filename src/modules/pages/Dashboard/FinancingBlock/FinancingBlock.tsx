@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
 
 import { PieChart } from 'modules/components/Charts/Pie/Pie';
-import { ChartBlock } from '../ChartBlock/ChartBlock';
+import { ChartBlock } from '../../../components/ChartBlock/ChartBlock';
 import { PieChartWrap } from '../Dashboard.styled';
 import { AssetsStructureData, financingData, headFinancing } from 'constants/dashbord';
 import { Table } from '../Table/Table';
-import { TRow } from '../Table/Table.styled';
+import { TRow, TitleTable } from '../Table/Table.styled';
 
 export const FinancingBlock = () => {
   const result = useMemo(
@@ -15,8 +15,15 @@ export const FinancingBlock = () => {
   );
 
   const renderItem = ({ name, color, value }: AssetsStructureData) => (
-    <TRow key={name} columns={headFinancing.length} value={(100 / result) * value} color={color}>
-      <p style={{ color }}>{name}</p>
+    <TRow
+      key={name}
+      columns={headFinancing.length}
+      value={(100 / result) * value}
+      color={color?.bg}
+    >
+      <TitleTable bgColor={color?.bg} borderColor={color?.border} textColor={color?.text}>
+        {name}
+      </TitleTable>
       <p>$00,000,000,000,000.00</p>
       <p>00.0%</p>
       <p>00.0%</p>

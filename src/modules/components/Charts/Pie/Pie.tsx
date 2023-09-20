@@ -57,7 +57,7 @@ export const PieChart = ({ data }: PieChartProps) => {
           onMouseOut={() => setState(undefined)}
         >
           {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={entry.color} />
+            <Cell key={`cell-${index}`} fill={entry.color?.bg} />
           ))}
         </Pie>
         <Tooltip

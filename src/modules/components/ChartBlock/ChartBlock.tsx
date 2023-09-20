@@ -1,4 +1,4 @@
-import { ContextMenu } from '../Menu/Menu';
+import { ContextMenu } from '../../pages/Dashboard/Menu/Menu';
 import { Title, Wrapper } from './ChartBlock.styled';
 
 interface ChartBlockProps {

@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { path } from './path';
 import { Layout } from 'modules/components/Layout/Layout';
-import { DashboardPage, IsinSearchPage } from 'modules/pages';
+import { DashboardPage, IsinSearchPage, PortfoliosPage } from 'modules/pages';
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +12,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <DashboardPage />,
+      },
+      {
+        path: path.portfolios,
+        element: <PortfoliosPage />,
       },
       {
         path: path.isinSearch,

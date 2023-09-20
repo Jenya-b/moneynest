@@ -19,9 +19,6 @@ export const Table = ({ data }: TableProps) => {
 
   const handleSort = (event: MouseEvent<HTMLElement>) => {
     const { id } = event.currentTarget;
-
-    console.log(id);
-
     if (!id) return;
 
     if (id === sortElem) setSortElem('');

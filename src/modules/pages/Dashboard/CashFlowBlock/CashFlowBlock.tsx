@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { Box } from '@mui/material';
 
 import { PERIODS_OF_TIME, cashFlowAnalysisData } from 'constants/dashbord';
-import { ChartBlock } from '../ChartBlock/ChartBlock';
+import { ChartBlock } from '../../../components/ChartBlock/ChartBlock';
 import { ChartControl, ChartWrap } from '../Dashboard.styled';
 import { Chart as BarChart, BarChartProps } from 'modules/components/Charts/Bar/Bar';
 import { Input } from 'modules/components/Form/Input/Input';

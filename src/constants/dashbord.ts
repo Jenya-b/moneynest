@@ -1,3 +1,5 @@
+import { Color } from 'interfaces/global';
+
 export const PERIODS_OF_TIME = ['daily', 'monthly', 'quaterly', 'annually'];
 
 export enum Perfomance {
@@ -74,15 +76,50 @@ export const perfomanceData = [
 export interface AssetsStructureData {
   name: string;
   value: number;
-  color: string;
+  color: Color | null;
 }
 
 export const assetsStructureData: AssetsStructureData[] = [
-  { name: 'Equities&similar', value: 400, color: '#448FFF' },
-  { name: 'Bonds&similar', value: 300, color: '#4ED251' },
-  { name: 'Cash', value: 300, color: '#403AEF' },
-  { name: 'Funds', value: 200, color: '#CB528B' },
-  { name: 'Other', value: 100, color: '#308D97' },
+  {
+    name: 'Equities&similar',
+    value: 400,
+    color: {
+      bg: '#448FFF',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'Bonds&similar',
+    value: 300,
+    color: {
+      bg: '#4ED251',
+      text: '#000000',
+    },
+  },
+  {
+    name: 'Cash',
+    value: 300,
+    color: {
+      bg: '#403AEF',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'Funds',
+    value: 200,
+    color: {
+      bg: '#CB528B',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'Other',
+    value: 100,
+    color: {
+      bg: '#308D97',
+      text: '#000000',
+    },
+  },
 ];
 
 export const headAssetsStructure = [
@@ -94,21 +131,91 @@ export const headAssetsStructure = [
 ];
 
 export const geographyData: AssetsStructureData[] = [
-  { name: 'EU', value: 400, color: '#448FFF' },
-  { name: 'US', value: 300, color: '#4ED251' },
-  { name: 'CN', value: 300, color: '#403AEF' },
-  { name: 'VN', value: 200, color: '#CB528B' },
-  { name: 'HK', value: 100, color: '#308D97' },
+  {
+    name: 'EU',
+    value: 400,
+    color: {
+      bg: '#448FFF',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'US',
+    value: 300,
+    color: {
+      bg: '#4ED251',
+      text: '#000000',
+    },
+  },
+  {
+    name: 'CN',
+    value: 300,
+    color: {
+      bg: '#403AEF',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'VN',
+    value: 200,
+    color: {
+      bg: '#CB528B',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'HK',
+    value: 100,
+    color: {
+      bg: '#308D97',
+      text: '#000000',
+    },
+  },
 ];
 
 export const headGeography = ['Country/Region'];
 
 export const industriesData: AssetsStructureData[] = [
-  { name: 'Telecomunications', value: 500, color: '#448FFF' },
-  { name: 'Durable Goods', value: 500, color: '#4ED251' },
-  { name: 'Consruction', value: 250, color: '#403AEF' },
-  { name: 'Health', value: 200, color: '#CB528B' },
-  { name: 'Other', value: 50, color: '#308D97' },
+  {
+    name: 'Telecomunications',
+    value: 500,
+    color: {
+      bg: '#448FFF',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'Durable Goods',
+    value: 500,
+    color: {
+      bg: '#4ED251',
+      text: '#000000',
+    },
+  },
+  {
+    name: 'Consruction',
+    value: 250,
+    color: {
+      bg: '#403AEF',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'Health',
+    value: 200,
+    color: {
+      bg: '#CB528B',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'Other',
+    value: 50,
+    color: {
+      bg: '#308D97',
+      text: '#000000',
+    },
+  },
 ];
 
 export const headIndustries = ['Industry/Sector'];
@@ -167,19 +274,89 @@ export const cashFlowAnalysisData = [
 export const headFinancing = ['Source/Description', 'Equivalent', 'Cost', 'Allocation'];
 
 export const financingData: AssetsStructureData[] = [
-  { name: 'Savings', value: 900, color: '#448FFF' },
-  { name: 'Loans', value: 300, color: '#4ED251' },
-  { name: 'Repo', value: 150, color: '#403AEF' },
-  { name: 'Short Term Loans', value: 150, color: '#CB528B' },
-  { name: 'Other', value: 100, color: '#308D97' },
+  {
+    name: 'Savings',
+    value: 900,
+    color: {
+      bg: '#448FFF',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'Loans',
+    value: 300,
+    color: {
+      bg: '#4ED251',
+      text: '#000000',
+    },
+  },
+  {
+    name: 'Repo',
+    value: 150,
+    color: {
+      bg: '#403AEF',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'Short Term Loans',
+    value: 150,
+    color: {
+      bg: '#CB528B',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'Other',
+    value: 100,
+    color: {
+      bg: '#308D97',
+      text: '#000000',
+    },
+  },
 ];
 
 export const headCurrencyPositioning = ['Symbol/Name', 'Amount', 'Equivalent', 'Allocation'];
 
 export const currencyPositioningData: AssetsStructureData[] = [
-  { name: 'USD', value: 500, color: '#448FFF' },
-  { name: 'EUR', value: 500, color: '#4ED251' },
-  { name: 'GBP', value: 450, color: '#403AEF' },
-  { name: 'CNY', value: 150, color: '#CB528B' },
-  { name: 'JPY', value: 50, color: '#308D97' },
+  {
+    name: 'USD',
+    value: 500,
+    color: {
+      bg: '#448FFF',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'EUR',
+    value: 500,
+    color: {
+      bg: '#4ED251',
+      text: '#000000',
+    },
+  },
+  {
+    name: 'GBP',
+    value: 450,
+    color: {
+      bg: '#403AEF',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'CNY',
+    value: 150,
+    color: {
+      bg: '#CB528B',
+      text: '#ffffff',
+    },
+  },
+  {
+    name: 'JPY',
+    value: 50,
+    color: {
+      bg: '#308D97',
+      text: '#000000',
+    },
+  },
 ];
