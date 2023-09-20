@@ -106,7 +106,7 @@ export const Chart = <T extends Record<string, unknown>>({ data, axis }: BarChar
           itemSorter={tooltipSorter}
         />
         <ReferenceLine y={0} stroke="#000" />
-        <Bar dataKey="cash">
+        <Bar dataKey="cash" barSize={30}>
           {cashFlowAnalysisData.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={entry.cash >= 0 ? '#448FFF' : '#F2522F'} />
           ))}
