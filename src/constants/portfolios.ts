@@ -1,8 +1,10 @@
-interface Color {
-  text: string | null;
-  bg: string | null;
-  border: string | null;
-}
+// interface Color {
+//   text: string | null;
+//   bg: string | null;
+//   border: string | null;
+// }
+
+import { Color } from 'interfaces/global';
 
 interface Info {
   title: string;
@@ -36,7 +38,6 @@ export const portfolios: IPortfolios[] = [
       colors: {
         text: '#FFFFFF',
         bg: '#403AEE',
-        border: null,
       },
     },
     tier: {
@@ -44,7 +45,6 @@ export const portfolios: IPortfolios[] = [
       colors: {
         text: '#000000',
         bg: '#FFFFFF',
-        border: null,
       },
     },
     parentPortfolios: null,
@@ -53,7 +53,6 @@ export const portfolios: IPortfolios[] = [
         title: 'Procter',
         colors: {
           text: '#FFFFFF',
-          bg: null,
           border: '#403AEF',
         },
       },
@@ -61,7 +60,6 @@ export const portfolios: IPortfolios[] = [
         title: 'Color',
         colors: {
           text: '#FFFFFF',
-          bg: null,
           border: '#403AEF',
         },
       },
@@ -71,8 +69,7 @@ export const portfolios: IPortfolios[] = [
         title: 'Equities&similar',
         colors: {
           text: '#FFFFFF',
-          bg: '##448FFF',
-          border: null,
+          bg: '#448FFF',
         },
       },
       {
@@ -80,7 +77,6 @@ export const portfolios: IPortfolios[] = [
         colors: {
           text: '#FFFFFF',
           bg: '#403AEE',
-          border: null,
         },
       },
       {
@@ -88,7 +84,6 @@ export const portfolios: IPortfolios[] = [
         colors: {
           text: '#000000',
           bg: '#4ED251',
-          border: null,
         },
       },
     ],
@@ -97,15 +92,164 @@ export const portfolios: IPortfolios[] = [
       colors: {
         text: '#000000',
         bg: '#4ED251',
-        border: null,
       },
     },
     prevailingIndustries: {
       title: 'Telecomunications',
       colors: {
         text: '#FFFFFF',
-        bg: '##448FFF',
-        border: null,
+        bg: '#448FFF',
+      },
+    },
+  },
+  {
+    name: {
+      title: 'Real estate',
+      colors: {
+        text: '#FFFFFF',
+        bg: '#F2522F',
+      },
+    },
+    tier: {
+      title: 'Root',
+      colors: {
+        text: '#000000',
+        bg: '#FFFFFF',
+      },
+    },
+    parentPortfolios: null,
+    childPortfolios: [
+      {
+        title: 'UK',
+        colors: {
+          text: '#000000',
+          bg: '#A3A3A3',
+          border: '#F2522F',
+        },
+      },
+      {
+        title: 'Honk Kong',
+        colors: {
+          text: '#000000',
+          bg: '#FFE178',
+          border: '#F2522F',
+        },
+      },
+      {
+        title: 'RS',
+        colors: {
+          text: '#219324',
+          bg: '#FFE178',
+          border: '#219324',
+        },
+      },
+      {
+        title: 'Orient',
+        colors: {
+          text: '#219324',
+          bg: '#FFE178',
+          border: '#219324',
+        },
+      },
+    ],
+    prevailingAssets: [
+      {
+        title: 'Equities&similar',
+        colors: {
+          text: '#FFFFFF',
+          bg: '#448FFF',
+        },
+      },
+      {
+        title: 'Cash',
+        colors: {
+          text: '#FFFFFF',
+          bg: '#403AEE',
+        },
+      },
+      {
+        title: 'Bonds&similar',
+        colors: {
+          text: '#000000',
+          bg: '#4ED251',
+        },
+      },
+    ],
+    prevailingCountries: {
+      title: 'US',
+      colors: {
+        text: '#000000',
+        bg: '#4ED251',
+      },
+    },
+    prevailingIndustries: {
+      title: 'Telecomunications',
+      colors: {
+        text: '#FFFFFF',
+        bg: '#448FFF',
+      },
+    },
+  },
+  {
+    name: {
+      title: 'Color',
+      colors: {
+        text: '#FFFFFF',
+        border: '#403AEF',
+      },
+    },
+    tier: {
+      title: 'Tier I',
+      colors: {
+        text: '#000000',
+        bg: '#4ED251',
+      },
+    },
+    parentPortfolios: [
+      {
+        title: 'Investments',
+        colors: {
+          text: '#FFFFFF',
+          bg: '#403AEE',
+        },
+      },
+    ],
+    childPortfolios: null,
+    prevailingAssets: [
+      {
+        title: 'Equities&similar',
+        colors: {
+          text: '#FFFFFF',
+          bg: '#448FFF',
+        },
+      },
+      {
+        title: 'Cash',
+        colors: {
+          text: '#FFFFFF',
+          bg: '#403AEE',
+        },
+      },
+      {
+        title: 'Bonds&similar',
+        colors: {
+          text: '#000000',
+          bg: '#4ED251',
+        },
+      },
+    ],
+    prevailingCountries: {
+      title: 'US',
+      colors: {
+        text: '#000000',
+        bg: '#4ED251',
+      },
+    },
+    prevailingIndustries: {
+      title: 'Telecomunications',
+      colors: {
+        text: '#FFFFFF',
+        bg: '#448FFF',
       },
     },
   },

@@ -42,9 +42,9 @@ export const TRow = styled.div<TableProps>`
 `;
 
 interface TitleTableProps {
-  bgColor?: string;
-  borderColor?: string;
-  textColor?: string;
+  bgColor?: string | null;
+  borderColor?: string | null;
+  textColor?: string | null;
 }
 
 export const TitleTable = styled.p<TitleTableProps>`
