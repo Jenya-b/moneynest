@@ -4,6 +4,9 @@ export const Wrapper = styled.div`
   padding: 30px 16px;
   background-color: ${({ theme }) => theme.colors.bgTertiary};
   border-radius: 10px;
+`;
+
+export const BreadcrumbTrail = styled.div`
   display: flex;
   align-items: center;
   column-gap: 20px;
