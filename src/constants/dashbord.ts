@@ -125,7 +125,7 @@ export const assetsStructureData: AssetsStructureData[] = [
 export const headAssetsStructure = [
   'Asset/Description',
   'Value/Cost',
-  'Equivalent',
+  'Exposure',
   'PL',
   'Allocation',
 ];
@@ -271,7 +271,7 @@ export const cashFlowAnalysisData = [
   },
 ];
 
-export const headFinancing = ['Source/Description', 'Equivalent', 'Cost', 'Allocation'];
+export const headFinancing = ['Source/Description', 'Exposure', 'Cost', 'Allocation'];
 
 export const financingData: AssetsStructureData[] = [
   {
@@ -316,7 +316,7 @@ export const financingData: AssetsStructureData[] = [
   },
 ];
 
-export const headCurrencyPositioning = ['Symbol/Name', 'Amount', 'Equivalent', 'Allocation'];
+export const headCurrencyPositioning = ['Symbol/Name', 'Amount', 'Exposure', 'Allocation'];
 
 export const currencyPositioningData: AssetsStructureData[] = [
   {
