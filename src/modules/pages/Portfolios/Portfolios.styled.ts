@@ -7,13 +7,3 @@ export const TableWrap = styled.div`
   background: #171730;
   overflow: auto;
 `;
-
-export const SettingBlock = styled.div`
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 45px;
-  display: flex;
-  align-items: center;
-`;

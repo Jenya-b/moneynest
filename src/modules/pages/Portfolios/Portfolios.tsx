@@ -1,4 +1,3 @@
-import { ChangeEvent, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Box } from '@mui/material';
 
@@ -6,35 +5,17 @@ import { Main } from 'styles/components';
 import { Breadcrumbs } from 'modules/components/Breadcrumbs/Breadcrumbs';
 import { ChartBlock } from 'modules/components/ChartBlock/ChartBlock';
 import { Table } from '../Dashboard/Table/Table';
-import { IPortfolios, portfoliosheadData, portfolios } from 'constants/portfolios';
+import { IPortfolios, portfolios } from 'constants/portfolios';
 import { TRow, TitleTable } from '../Dashboard/Table/Table.styled';
-import { SettingBlock, TableWrap } from './Portfolios.styled';
+import { TableWrap } from './Portfolios.styled';
 import { HeadEnum } from 'constants/tables';
-import { ContextMenu } from './Menu/Menu';
+import { Settings } from './Settings/Settings';
+import { useAppSelector } from 'modules/store/store';
+import { portfolioSelector } from 'modules/store/selectors';
 
 export const PortfoliosPage = () => {
   const location = useLocation();
-  const [theadSelected, setTheadSelected] = useState<{ [key in HeadEnum]?: boolean }>({});
-  const [headData, setHeadData] = useState<HeadEnum[]>([]);
-  const [countHiddenColumns, setCountHiddenColumns] = useState<number>(0);
-
-  useEffect(() => {
-    setHeadData(portfoliosheadData);
-    const checkGroup: { [key in HeadEnum]?: boolean } = {};
-    portfoliosheadData.map((item) => (checkGroup[item] = true));
-    setTheadSelected(checkGroup);
-  }, []);
-
-  useEffect(() => {
-    if (!theadSelected) return;
-    const newData = portfoliosheadData.filter((item) => theadSelected[item]);
-
-    setHeadData(newData);
-  }, [theadSelected]);
-
-  useEffect(() => {
-    setCountHiddenColumns(portfoliosheadData.length - headData.length);
-  }, [headData]);
+  const { headData, checkedHeadData } = useAppSelector(portfolioSelector);
 
   const renderItem = (
     {
@@ -49,7 +30,7 @@ export const PortfoliosPage = () => {
     index: number | undefined
   ) => (
     <TRow key={index} style={{ height: '60px' }} columns={headData.length}>
-      {theadSelected[HeadEnum.Name] && (
+      {checkedHeadData[HeadEnum.Name] && (
         <TitleTable
           bgColor={name?.colors?.bg}
           borderColor={name?.colors?.border}
@@ -58,7 +39,7 @@ export const PortfoliosPage = () => {
           {name?.title}
         </TitleTable>
       )}
-      {theadSelected[HeadEnum.Tier] && (
+      {checkedHeadData[HeadEnum.Tier] && (
         <TitleTable
           bgColor={tier?.colors?.bg}
           borderColor={tier?.colors?.border}
@@ -68,7 +49,7 @@ export const PortfoliosPage = () => {
         </TitleTable>
       )}
 
-      {theadSelected[HeadEnum.ParentPortfolios] && (
+      {checkedHeadData[HeadEnum.ParentPortfolios] && (
         <Box sx={{ display: 'flex', columnGap: '5px', flexWrap: 'wrap' }}>
           {parentPortfolios?.map(({ colors, title }, index) => (
             <TitleTable
@@ -82,7 +63,7 @@ export const PortfoliosPage = () => {
           ))}
         </Box>
       )}
-      {theadSelected[HeadEnum.ChildPortfolios] && (
+      {checkedHeadData[HeadEnum.ChildPortfolios] && (
         <Box sx={{ display: 'flex', columnGap: '5px', rowGap: '5px', flexWrap: 'wrap' }}>
           {childPortfolios?.map(({ colors, title }, index) => (
             <TitleTable
@@ -96,7 +77,7 @@ export const PortfoliosPage = () => {
           ))}
         </Box>
       )}
-      {theadSelected[HeadEnum.PrevailingAssets] && (
+      {checkedHeadData[HeadEnum.PrevailingAssets] && (
         <Box sx={{ display: 'flex', columnGap: '5px', rowGap: '5px', flexWrap: 'wrap' }}>
           {prevailingAssets?.map(({ colors, title }, index) => (
             <TitleTable
@@ -110,7 +91,7 @@ export const PortfoliosPage = () => {
           ))}
         </Box>
       )}
-      {theadSelected[HeadEnum.PrevailingCountries] && (
+      {checkedHeadData[HeadEnum.PrevailingCountries] && (
         <TitleTable
           bgColor={prevailingCountries?.colors?.bg}
           borderColor={prevailingCountries?.colors?.border}
@@ -119,7 +100,7 @@ export const PortfoliosPage = () => {
           {prevailingCountries?.title}
         </TitleTable>
       )}
-      {theadSelected[HeadEnum.PrevailingIndustries] && (
+      {checkedHeadData[HeadEnum.PrevailingIndustries] && (
         <TitleTable
           bgColor={prevailingIndustries?.colors?.bg}
           borderColor={prevailingIndustries?.colors?.border}
@@ -131,26 +112,12 @@ export const PortfoliosPage = () => {
     </TRow>
   );
 
-  const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setTheadSelected({
-      ...theadSelected,
-      [event.target.name]: event.target.checked,
-    });
-  };
-
   return (
     <Main style={{ display: 'flex', flexDirection: 'column', rowGap: '8px', overflow: 'auto' }}>
       <Breadcrumbs pathName={location.pathname} />
       <ChartBlock title="Portfolio map">
         <>
-          <SettingBlock>
-            <ContextMenu
-              data={portfoliosheadData}
-              handleCheckboxChange={handleCheckboxChange}
-              checked={theadSelected}
-              countHiddenColumns={countHiddenColumns}
-            />
-          </SettingBlock>
+          <Settings />
           <TableWrap>
             <Table data={portfolios} headData={headData} renderItem={renderItem}></Table>
           </TableWrap>
