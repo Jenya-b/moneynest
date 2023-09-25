@@ -5,6 +5,7 @@ export const TableWrap = styled.div`
   padding: 8px;
   border-radius: 5px;
   background: #171730;
+  overflow: auto;
 `;
 
 export const SettingBlock = styled.div`

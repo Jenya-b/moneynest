@@ -17,6 +17,15 @@ export enum HeadEnum {
   Cost = 'cost',
   SymbolName = 'symbolName',
   Amount = 'amount',
+  UnrealizedPl = 'unrealizedPl',
+  TotalPl = 'totalPl',
+  TargetWeight = 'targetWeight',
+  Tax = 'tax',
+  Irr = 'irr',
+  Var = 'var',
+  Views = 'views',
+  Custodians = 'custodians',
+  AccountHolders = 'accountHolders',
 }
 
 export const HEAD_DATA: { [key in HeadEnum]: string } = {
@@ -38,4 +47,13 @@ export const HEAD_DATA: { [key in HeadEnum]: string } = {
   [HeadEnum.Cost]: 'Cost',
   [HeadEnum.SymbolName]: 'Symbol/Name',
   [HeadEnum.Amount]: 'Amount',
+  [HeadEnum.UnrealizedPl]: 'Unrealized PL',
+  [HeadEnum.TotalPl]: 'Total PL',
+  [HeadEnum.TargetWeight]: 'Target weight',
+  [HeadEnum.Tax]: 'Tax',
+  [HeadEnum.Irr]: 'IRR',
+  [HeadEnum.Var]: 'VaR',
+  [HeadEnum.Views]: 'Views',
+  [HeadEnum.Custodians]: 'Custodians',
+  [HeadEnum.AccountHolders]: 'Account	holders',
 };

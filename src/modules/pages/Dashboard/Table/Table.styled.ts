@@ -6,12 +6,29 @@ interface TableProps {
   bgColor?: string;
 }
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: #292949;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: #808080;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #808080;
+  }
+`;
 
 export const THead = styled.div<TableProps>`
   height: 48px;
+  width: calc(174px * ${({ columns }) => columns});
   display: grid;
-  grid-template-columns: repeat(${({ columns }) => columns}, 1fr);
+  grid-template-columns: repeat(${({ columns }) => columns}, 174px);
   align-items: center;
   color: ${({ theme }) => theme.colors.textPrimary};
   font-size: 14px;
@@ -24,8 +41,9 @@ export const THead = styled.div<TableProps>`
 export const TRow = styled.div<TableProps>`
   position: relative;
   height: 48px;
+  width: calc(174px * ${({ columns }) => columns});
   display: grid;
-  grid-template-columns: repeat(${({ columns }) => columns}, 1fr);
+  grid-template-columns: repeat(${({ columns }) => columns}, 174px);
   align-items: center;
   border-bottom: 1px solid #292949;
   color: ${({ theme }) => theme.colors.textPrimary};

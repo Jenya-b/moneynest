@@ -139,7 +139,7 @@ export const PortfoliosPage = () => {
   };
 
   return (
-    <Main style={{ display: 'flex', flexDirection: 'column', rowGap: '8px' }}>
+    <Main style={{ display: 'flex', flexDirection: 'column', rowGap: '8px', overflow: 'auto' }}>
       <Breadcrumbs pathName={location.pathname} />
       <ChartBlock title="Portfolio map">
         <>

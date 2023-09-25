@@ -24,6 +24,17 @@ export const portfoliosheadData = [
   HeadEnum.PrevailingAssets,
   HeadEnum.PrevailingCountries,
   HeadEnum.PrevailingIndustries,
+  HeadEnum.ValueCost,
+  HeadEnum.UnrealizedPl,
+  HeadEnum.TotalPl,
+  HeadEnum.Allocation,
+  HeadEnum.TargetWeight,
+  HeadEnum.Tax,
+  HeadEnum.Irr,
+  HeadEnum.Var,
+  HeadEnum.Views,
+  HeadEnum.Custodians,
+  HeadEnum.AccountHolders,
 ];
 
 export const portfolios: IPortfolios[] = [

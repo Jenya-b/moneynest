@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Menu, { MenuProps } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Button, Checkbox, FormControlLabel, alpha, styled } from '@mui/material';
 import { colors } from 'styles/colors';
 import { HEAD_DATA, HeadEnum } from 'constants/tables';
@@ -71,7 +72,7 @@ export const ContextMenu = ({
       <Button
         variant="contained"
         onClick={handleClick}
-        startIcon={<VisibilityIcon />}
+        startIcon={countHiddenColumns ? <VisibilityOffIcon /> : <VisibilityIcon />}
         sx={{
           backgroundColor: 'rgba(68, 143, 255, 0.20)',
           textTransform: 'lowercase',
