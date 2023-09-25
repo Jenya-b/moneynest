@@ -16,7 +16,12 @@ export const Button = styled.button<ButtonProps>`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  color: ${({ isactive }) => (isactive ? `${colors.white}` : `${colors.grey200}`)};
+  color: ${({ theme }) => theme.colors.textPrimary};
+  opacity: ${({ isactive }) => (isactive ? 1 : 0.6)};
+
+  :hover {
+    opacity: 1;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -25,10 +30,15 @@ export const StyledNavLink = styled(NavLink)`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  color: ${({ theme }) => theme.colors.textTertiary};
+  color: ${({ theme }) => theme.colors.textPrimary};
+  opacity: 0.6;
+
+  :hover {
+    opacity: 1;
+  }
 
   &.active {
-    color: ${({ theme }) => theme.colors.textPrimary};
+    opacity: 1;
   }
 `;
 
@@ -40,7 +50,7 @@ export const NavLinkMenu = styled.p`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  color: ${colors.blackMidnight400};
+  color: ${colors.blue400};
 
   ::before {
     position: absolute;
