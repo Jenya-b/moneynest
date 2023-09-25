@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import Menu, { MenuProps } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useState } from 'react';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Button, Checkbox, FormControlLabel, alpha, styled } from '@mui/material';
 import { colors } from 'styles/colors';
 import { HEAD_DATA, HeadEnum } from 'constants/tables';
@@ -47,9 +48,15 @@ interface ContextMenuProps {
   data: HeadEnum[];
   handleCheckboxChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   checked: { [key in HeadEnum]?: boolean };
+  countHiddenColumns: number;
 }
 
-export const ContextMenu = ({ data, handleCheckboxChange, checked }: ContextMenuProps) => {
+export const ContextMenu = ({
+  data,
+  handleCheckboxChange,
+  checked,
+  countHiddenColumns,
+}: ContextMenuProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -62,13 +69,17 @@ export const ContextMenu = ({ data, handleCheckboxChange, checked }: ContextMenu
   return (
     <div>
       <Button
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        variant="contained"
         onClick={handleClick}
+        startIcon={<VisibilityIcon />}
+        sx={{
+          backgroundColor: 'rgba(68, 143, 255, 0.20)',
+          textTransform: 'lowercase',
+          fontSize: '14px',
+          fontWeight: 500,
+        }}
       >
-        Dashboard
+        {countHiddenColumns} hidden field
       </Button>
       <StyledMenu
         id="long-menu"
