@@ -1,4 +1,5 @@
 import { Color } from 'interfaces/global';
+import { HeadEnum } from './tables';
 
 export const PERIODS_OF_TIME = ['daily', 'monthly', 'quaterly', 'annually'];
 
@@ -123,11 +124,11 @@ export const assetsStructureData: AssetsStructureData[] = [
 ];
 
 export const headAssetsStructure = [
-  'Asset/Description',
-  'Value/Cost',
-  'Exposure',
-  'PL',
-  'Allocation',
+  HeadEnum.AssetDescription,
+  HeadEnum.ValueCost,
+  HeadEnum.Exposure,
+  HeadEnum.PL,
+  HeadEnum.Allocation,
 ];
 
 export const geographyData: AssetsStructureData[] = [
@@ -173,7 +174,7 @@ export const geographyData: AssetsStructureData[] = [
   },
 ];
 
-export const headGeography = ['Country/Region'];
+export const headGeography = [HeadEnum.CountryRegion];
 
 export const industriesData: AssetsStructureData[] = [
   {
@@ -218,7 +219,7 @@ export const industriesData: AssetsStructureData[] = [
   },
 ];
 
-export const headIndustries = ['Industry/Sector'];
+export const headIndustries = [HeadEnum.IndustrySector];
 
 export const cashFlowAnalysisData = [
   {
@@ -271,7 +272,12 @@ export const cashFlowAnalysisData = [
   },
 ];
 
-export const headFinancing = ['Source/Description', 'Exposure', 'Cost', 'Allocation'];
+export const headFinancing = [
+  HeadEnum.SourceDescription,
+  HeadEnum.Exposure,
+  HeadEnum.Cost,
+  HeadEnum.Allocation,
+];
 
 export const financingData: AssetsStructureData[] = [
   {
@@ -316,7 +322,12 @@ export const financingData: AssetsStructureData[] = [
   },
 ];
 
-export const headCurrencyPositioning = ['Symbol/Name', 'Amount', 'Exposure', 'Allocation'];
+export const headCurrencyPositioning = [
+  HeadEnum.SymbolName,
+  HeadEnum.Amount,
+  HeadEnum.Exposure,
+  HeadEnum.Allocation,
+];
 
 export const currencyPositioningData: AssetsStructureData[] = [
   {

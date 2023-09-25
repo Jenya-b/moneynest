@@ -1,8 +1,9 @@
+import { HEAD_DATA, HeadEnum } from 'constants/tables';
 import { THead, Wrapper } from './Table.styled';
 
 interface TableProps<T> {
   data: T[];
-  headData: string[];
+  headData: HeadEnum[];
   renderItem: (item: T) => JSX.Element;
 }
 
@@ -11,7 +12,7 @@ export const Table = <T,>({ headData, data, renderItem }: TableProps<T>) => {
     <Wrapper>
       <THead columns={headData.length}>
         {headData.map((item) => (
-          <p key={item}>{item}</p>
+          <p key={item}>{HEAD_DATA[item]}</p>
         ))}
       </THead>
       {data.map((item) => renderItem(item))}

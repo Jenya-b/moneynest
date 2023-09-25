@@ -4,7 +4,7 @@ import { Breadcrumbs } from 'modules/components/Breadcrumbs/Breadcrumbs';
 import { useLocation } from 'react-router-dom';
 import { ChartBlock } from 'modules/components/ChartBlock/ChartBlock';
 import { Table } from '../Dashboard/Table/Table';
-import { IPortfolios, headData, portfolios } from 'constants/portfolios';
+import { IPortfolios, portfoliosheadData, portfolios } from 'constants/portfolios';
 import { TRow, TitleTable } from '../Dashboard/Table/Table.styled';
 import { Box } from '@mui/material';
 import { TableWrap } from './Portfolios.styled';
@@ -21,7 +21,7 @@ export const PortfoliosPage = () => {
     prevailingCountries,
     prevailingIndustries,
   }: IPortfolios) => (
-    <TRow style={{ height: '60px' }} columns={headData.length}>
+    <TRow style={{ height: '60px' }} columns={portfoliosheadData.length}>
       <TitleTable
         bgColor={name?.colors?.bg}
         borderColor={name?.colors?.border}
@@ -94,7 +94,7 @@ export const PortfoliosPage = () => {
       <Breadcrumbs pathName={location.pathname} />
       <ChartBlock title="Portfolio map">
         <TableWrap>
-          <Table data={portfolios} headData={headData} renderItem={renderItem}></Table>
+          <Table data={portfolios} headData={portfoliosheadData} renderItem={renderItem}></Table>
         </TableWrap>
       </ChartBlock>
     </Main>

@@ -1,10 +1,5 @@
-// interface Color {
-//   text: string | null;
-//   bg: string | null;
-//   border: string | null;
-// }
-
 import { Color } from 'interfaces/global';
+import { HeadEnum } from './tables';
 
 interface Info {
   title: string;
@@ -21,14 +16,14 @@ export interface IPortfolios {
   prevailingIndustries: Info | null;
 }
 
-export const headData = [
-  'Name',
-  'Tier',
-  'Parent portfolios',
-  'Child portfolios',
-  'Prevailing Assets',
-  'Prevailing	Countries',
-  'Prevailing	Industries',
+export const portfoliosheadData = [
+  HeadEnum.Name,
+  HeadEnum.Tier,
+  HeadEnum.ParentPortfolios,
+  HeadEnum.ChildPortfolios,
+  HeadEnum.PrevailingAssets,
+  HeadEnum.PrevailingCountries,
+  HeadEnum.PrevailingIndustries,
 ];
 
 export const portfolios: IPortfolios[] = [
