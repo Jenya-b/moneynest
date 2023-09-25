@@ -7,6 +7,7 @@ import Chip from '@mui/material/Chip';
 
 import { Label } from 'styles/components';
 import { Box } from '@mui/material';
+import { HeadEnum } from 'constants/tables';
 
 const styles = {
   marginTop: '4px',

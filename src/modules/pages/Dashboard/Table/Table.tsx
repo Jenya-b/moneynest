@@ -4,7 +4,7 @@ import { THead, Wrapper } from './Table.styled';
 interface TableProps<T> {
   data: T[];
   headData: HeadEnum[];
-  renderItem: (item: T) => JSX.Element;
+  renderItem: (item: T, index?: number) => JSX.Element;
 }
 
 export const Table = <T,>({ headData, data, renderItem }: TableProps<T>) => {
@@ -15,7 +15,7 @@ export const Table = <T,>({ headData, data, renderItem }: TableProps<T>) => {
           <p key={item}>{HEAD_DATA[item]}</p>
         ))}
       </THead>
-      {data.map((item) => renderItem(item))}
+      {data.map((item, index) => renderItem(item, index))}
     </Wrapper>
   );
 };
