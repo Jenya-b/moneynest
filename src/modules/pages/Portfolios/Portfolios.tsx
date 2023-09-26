@@ -8,18 +8,21 @@ import { Table } from '../Dashboard/Table/Table';
 import { IPortfolios, portfolios } from 'constants/portfolios';
 import { TRow, TitleTable } from '../Dashboard/Table/Table.styled';
 import { Settings, TableWrap } from './Portfolios.styled';
-import { HeadEnum } from 'constants/tables';
+import { HEAD_DATA, HeadEnum } from 'constants/tables';
 import { HiddenField } from './HiddenField/HiddenField';
 import { useAppSelector } from 'modules/store/store';
 import { portfolioSelector } from 'modules/store/selectors';
 import { Sort } from './Sort/Sort';
 import { Filter } from './Filter/Filter';
+import { TableBasic } from 'modules/components/TableBasic/TableBasic';
 
 export const PortfoliosPage = () => {
   const location = useLocation();
   const { headData, checkedHeadData } = useAppSelector(portfolioSelector);
 
-  const renderItem = (
+  const renderHeadItem = (item: HeadEnum) => <th key={item}>{HEAD_DATA[item]}</th>;
+
+  const renderBodyItem = (
     {
       name,
       tier,
@@ -31,87 +34,111 @@ export const PortfoliosPage = () => {
     }: IPortfolios,
     index: number | undefined
   ) => (
-    <TRow key={index} style={{ height: '60px' }} columns={headData.length}>
+    <tr key={index}>
       {checkedHeadData[HeadEnum.Name] && (
-        <TitleTable
-          bgColor={name?.colors?.bg}
-          borderColor={name?.colors?.border}
-          textColor={name?.colors?.text}
-        >
-          {name?.title}
-        </TitleTable>
+        <td>
+          <TitleTable
+            bgColor={name?.colors?.bg}
+            borderColor={name?.colors?.border}
+            textColor={name?.colors?.text}
+          >
+            {name?.title}
+          </TitleTable>
+        </td>
       )}
       {checkedHeadData[HeadEnum.Tier] && (
-        <TitleTable
-          bgColor={tier?.colors?.bg}
-          borderColor={tier?.colors?.border}
-          textColor={tier?.colors?.text}
-        >
-          {tier?.title}
-        </TitleTable>
+        <td>
+          <TitleTable
+            bgColor={tier?.colors?.bg}
+            borderColor={tier?.colors?.border}
+            textColor={tier?.colors?.text}
+          >
+            {tier?.title}
+          </TitleTable>
+        </td>
       )}
-
       {checkedHeadData[HeadEnum.ParentPortfolios] && (
-        <Box sx={{ display: 'flex', columnGap: '5px', flexWrap: 'wrap' }}>
-          {parentPortfolios?.map(({ colors, title }, index) => (
-            <TitleTable
-              key={index}
-              bgColor={colors?.bg}
-              borderColor={colors?.border}
-              textColor={colors?.text}
-            >
-              {title}
-            </TitleTable>
-          ))}
-        </Box>
+        <td>
+          <Box sx={{ display: 'flex', columnGap: '5px', flexWrap: 'wrap' }}>
+            {parentPortfolios?.map(({ colors, title }, index) => (
+              <TitleTable
+                key={index}
+                bgColor={colors?.bg}
+                borderColor={colors?.border}
+                textColor={colors?.text}
+              >
+                {title}
+              </TitleTable>
+            ))}
+          </Box>
+        </td>
       )}
       {checkedHeadData[HeadEnum.ChildPortfolios] && (
-        <Box sx={{ display: 'flex', columnGap: '5px', rowGap: '5px', flexWrap: 'wrap' }}>
-          {childPortfolios?.map(({ colors, title }, index) => (
-            <TitleTable
-              key={index}
-              bgColor={colors?.bg}
-              borderColor={colors?.border}
-              textColor={colors?.text}
-            >
-              {title}
-            </TitleTable>
-          ))}
-        </Box>
+        <td>
+          <Box sx={{ display: 'flex', columnGap: '5px', rowGap: '5px', flexWrap: 'wrap' }}>
+            {childPortfolios?.map(({ colors, title }, index) => (
+              <TitleTable
+                key={index}
+                bgColor={colors?.bg}
+                borderColor={colors?.border}
+                textColor={colors?.text}
+              >
+                {title}
+              </TitleTable>
+            ))}
+          </Box>
+        </td>
       )}
       {checkedHeadData[HeadEnum.PrevailingAssets] && (
-        <Box sx={{ display: 'flex', columnGap: '5px', rowGap: '5px', flexWrap: 'wrap' }}>
-          {prevailingAssets?.map(({ colors, title }, index) => (
-            <TitleTable
-              key={index}
-              bgColor={colors?.bg}
-              borderColor={colors?.border}
-              textColor={colors?.text}
-            >
-              {title}
-            </TitleTable>
-          ))}
-        </Box>
+        <td>
+          <Box sx={{ display: 'flex', columnGap: '5px', rowGap: '5px', flexWrap: 'wrap' }}>
+            {prevailingAssets?.map(({ colors, title }, index) => (
+              <TitleTable
+                key={index}
+                bgColor={colors?.bg}
+                borderColor={colors?.border}
+                textColor={colors?.text}
+              >
+                {title}
+              </TitleTable>
+            ))}
+          </Box>
+        </td>
       )}
       {checkedHeadData[HeadEnum.PrevailingCountries] && (
-        <TitleTable
-          bgColor={prevailingCountries?.colors?.bg}
-          borderColor={prevailingCountries?.colors?.border}
-          textColor={prevailingCountries?.colors?.text}
-        >
-          {prevailingCountries?.title}
-        </TitleTable>
+        <td>
+          <TitleTable
+            bgColor={prevailingCountries?.colors?.bg}
+            borderColor={prevailingCountries?.colors?.border}
+            textColor={prevailingCountries?.colors?.text}
+          >
+            {prevailingCountries?.title}
+          </TitleTable>
+        </td>
       )}
       {checkedHeadData[HeadEnum.PrevailingIndustries] && (
-        <TitleTable
-          bgColor={prevailingIndustries?.colors?.bg}
-          borderColor={prevailingIndustries?.colors?.border}
-          textColor={prevailingIndustries?.colors?.text}
-        >
-          {prevailingIndustries?.title}
-        </TitleTable>
+        <td>
+          <TitleTable
+            bgColor={prevailingIndustries?.colors?.bg}
+            borderColor={prevailingIndustries?.colors?.border}
+            textColor={prevailingIndustries?.colors?.text}
+          >
+            {prevailingIndustries?.title}
+          </TitleTable>
+        </td>
       )}
-    </TRow>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
   );
 
   return (
@@ -124,9 +151,13 @@ export const PortfoliosPage = () => {
             <Sort />
             <Filter />
           </Settings>
-
           <TableWrap>
-            <Table data={portfolios} headData={headData} renderItem={renderItem}></Table>
+            <TableBasic
+              bodyData={portfolios}
+              headData={headData}
+              renderBodyItem={renderBodyItem}
+              renderHeadItem={renderHeadItem}
+            />
           </TableWrap>
         </>
       </ChartBlock>
