@@ -7,11 +7,13 @@ import { ChartBlock } from 'modules/components/ChartBlock/ChartBlock';
 import { Table } from '../Dashboard/Table/Table';
 import { IPortfolios, portfolios } from 'constants/portfolios';
 import { TRow, TitleTable } from '../Dashboard/Table/Table.styled';
-import { TableWrap } from './Portfolios.styled';
+import { Settings, TableWrap } from './Portfolios.styled';
 import { HeadEnum } from 'constants/tables';
-import { Settings } from './Settings/Settings';
+import { HiddenField } from './HiddenField/HiddenField';
 import { useAppSelector } from 'modules/store/store';
 import { portfolioSelector } from 'modules/store/selectors';
+import { Sort } from './Sort/Sort';
+import { Filter } from './Filter/Filter';
 
 export const PortfoliosPage = () => {
   const location = useLocation();
@@ -117,7 +119,12 @@ export const PortfoliosPage = () => {
       <Breadcrumbs pathName={location.pathname} />
       <ChartBlock title="Portfolio map">
         <>
-          <Settings />
+          <Settings>
+            <HiddenField />
+            <Sort />
+            <Filter />
+          </Settings>
+
           <TableWrap>
             <Table data={portfolios} headData={headData} renderItem={renderItem}></Table>
           </TableWrap>
