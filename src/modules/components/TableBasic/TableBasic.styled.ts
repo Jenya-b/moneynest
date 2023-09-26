@@ -6,7 +6,6 @@ interface ICountColumns {
 }
 
 export const StyledTable = styled.table<ICountColumns>`
-  margin-top: 32px;
   display: grid;
   min-width: 100%;
   grid-template-columns: repeat(${({ count }) => count}, minmax(170px, 1fr));

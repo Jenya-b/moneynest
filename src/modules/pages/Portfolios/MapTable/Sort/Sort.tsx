@@ -1,12 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Menu, { MenuProps } from '@mui/material/Menu';
 import SortIcon from '@mui/icons-material/Sort';
 import { Button, alpha, styled } from '@mui/material';
 import { colors } from 'styles/colors';
-import { HeadEnum } from 'constants/tables';
-import { useAppDispatch } from 'modules/store/store';
-import { portfoliosheadData } from 'constants/portfolios';
-import { setCheckedHeadData, setHeadData } from 'modules/store/reducers/portfolioSlice';
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -47,16 +43,8 @@ const StyledMenu = styled((props: MenuProps) => (
 }));
 
 export const Sort = () => {
-  const dispatch = useAppDispatch();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-
-  useEffect(() => {
-    dispatch(setHeadData(portfoliosheadData));
-    const checkGroup: { [key in HeadEnum]?: boolean } = {};
-    portfoliosheadData.map((item) => (checkGroup[item] = true));
-    dispatch(setCheckedHeadData(checkGroup));
-  }, []);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);

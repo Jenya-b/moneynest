@@ -3,14 +3,16 @@ import Menu, { MenuProps } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import SortIcon from '@mui/icons-material/Sort';
 import { Button, Checkbox, FormControlLabel, alpha, styled } from '@mui/material';
 import { colors } from 'styles/colors';
-import { HEAD_DATA, HeadEnum } from 'constants/tables';
+import { HEAD_DATA } from 'constants/tables';
 import { portfolioSelector } from 'modules/store/selectors';
 import { useAppDispatch, useAppSelector } from 'modules/store/store';
-import { portfoliosheadData } from 'constants/portfolios';
-import { setCheckedHeadData, setHeadData } from 'modules/store/reducers/portfolioSlice';
+import { portfoliosHoldingheadData } from 'constants/portfolios';
+import {
+  setCheckedPositionsHeadData,
+  setPositionsHeadData,
+} from 'modules/store/reducers/portfolioSlice';
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -52,33 +54,26 @@ const StyledMenu = styled((props: MenuProps) => (
 
 export const HiddenField = () => {
   const dispatch = useAppDispatch();
-  const { headData, checkedHeadData } = useAppSelector(portfolioSelector);
+  const { positionsHeadData, checkedPositionsHeadData } = useAppSelector(portfolioSelector);
   const [countHiddenColumns, setCountHiddenColumns] = useState<number>(0);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
   useEffect(() => {
-    dispatch(setHeadData(portfoliosheadData));
-    const checkGroup: { [key in HeadEnum]?: boolean } = {};
-    portfoliosheadData.map((item) => (checkGroup[item] = true));
-    dispatch(setCheckedHeadData(checkGroup));
-  }, []);
+    if (!checkedPositionsHeadData) return;
+    const newData = portfoliosHoldingheadData.filter((item) => checkedPositionsHeadData[item]);
+
+    dispatch(setPositionsHeadData(newData));
+  }, [checkedPositionsHeadData]);
 
   useEffect(() => {
-    if (!checkedHeadData) return;
-    const newData = portfoliosheadData.filter((item) => checkedHeadData[item]);
-
-    dispatch(setHeadData(newData));
-  }, [checkedHeadData]);
-
-  useEffect(() => {
-    setCountHiddenColumns(portfoliosheadData.length - headData.length);
-  }, [headData]);
+    setCountHiddenColumns(portfoliosHoldingheadData.length - positionsHeadData.length);
+  }, [positionsHeadData]);
 
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(
-      setCheckedHeadData({
-        ...checkedHeadData,
+      setCheckedPositionsHeadData({
+        ...checkedPositionsHeadData,
         [event.target.name]: event.target.checked,
       })
     );
@@ -116,12 +111,12 @@ export const HiddenField = () => {
         open={open}
         onClose={handleClose}
       >
-        {portfoliosheadData.map((item) => (
+        {portfoliosHoldingheadData.map((item) => (
           <MenuItem key={item}>
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={checkedHeadData[item]}
+                  checked={checkedPositionsHeadData[item]}
                   onChange={handleCheckboxChange}
                   name={item}
                 />

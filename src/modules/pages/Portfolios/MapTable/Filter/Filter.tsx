@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Menu, { MenuProps } from '@mui/material/Menu';
 import FilterListIcon from '@mui/icons-material/FilterList';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
 import {
   Box,
   Button,
@@ -16,10 +14,8 @@ import {
   styled,
 } from '@mui/material';
 import { colors } from 'styles/colors';
-import { HEAD_DATA, HeadEnum } from 'constants/tables';
-import { useAppDispatch } from 'modules/store/store';
+import { HEAD_DATA } from 'constants/tables';
 import { portfoliosheadData } from 'constants/portfolios';
-import { setCheckedHeadData, setHeadData } from 'modules/store/reducers/portfolioSlice';
 
 const operators = ['contains', 'is empty', 'no is empty'];
 
@@ -62,16 +58,8 @@ const StyledMenu = styled((props: MenuProps) => (
 }));
 
 export const Filter = () => {
-  const dispatch = useAppDispatch();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-
-  useEffect(() => {
-    dispatch(setHeadData(portfoliosheadData));
-    const checkGroup: { [key in HeadEnum]?: boolean } = {};
-    portfoliosheadData.map((item) => (checkGroup[item] = true));
-    dispatch(setCheckedHeadData(checkGroup));
-  }, []);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);

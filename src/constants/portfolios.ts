@@ -6,6 +6,11 @@ interface Info {
   colors: Color | null;
 }
 
+interface Count {
+  firstValue: number;
+  secondValue: number | null;
+}
+
 export interface IPortfolios {
   name: Info | null;
   tier: Info | null;
@@ -35,6 +40,19 @@ export const portfoliosheadData = [
   HeadEnum.Views,
   HeadEnum.Custodians,
   HeadEnum.AccountHolders,
+];
+
+export const portfoliosHoldingheadData = [
+  HeadEnum.NameSymbol,
+  HeadEnum.LongShort,
+  HeadEnum.Quantity,
+  HeadEnum.PriceCurrency,
+  HeadEnum.AveragePrice,
+  HeadEnum.ValueMarketPrice,
+  HeadEnum.TotalPl,
+  HeadEnum.Allocation,
+  HeadEnum.TargetWeight,
+  HeadEnum.Portfolio,
 ];
 
 export const portfolios: IPortfolios[] = [
@@ -256,6 +274,85 @@ export const portfolios: IPortfolios[] = [
       colors: {
         text: '#FFFFFF',
         bg: '#448FFF',
+      },
+    },
+  },
+];
+
+export interface IPortfoliosHolding {
+  logo: string;
+  nameSymbol: {
+    name: Info;
+    symbol: string;
+  };
+  longShort: Info;
+  quantity: Count;
+  priceCurrency: Info;
+  averagePrice: Count;
+  valueMarketPrice: Count;
+  totalPl: Count;
+  allocation: Count;
+  targetWeight: Count;
+  portfolio: Info;
+}
+
+export const portfoliosHoldingData: IPortfoliosHolding[] = [
+  {
+    logo: '',
+    nameSymbol: {
+      name: {
+        title: 'Apple',
+        colors: {
+          text: '#FFFFFF',
+          bg: '#448FFF',
+        },
+      },
+      symbol: 'NASDAQ:AAPL',
+    },
+    longShort: {
+      title: 'Long',
+      colors: {
+        text: '#000',
+        bg: '#34FEC1',
+      },
+    },
+    quantity: {
+      firstValue: 0,
+      secondValue: null,
+    },
+    priceCurrency: {
+      title: 'USD',
+      colors: {
+        text: '#FFFFFF',
+        bg: '#7171C0',
+      },
+    },
+    averagePrice: {
+      firstValue: 0,
+      secondValue: null,
+    },
+    valueMarketPrice: {
+      firstValue: 0,
+      secondValue: 0,
+    },
+    totalPl: {
+      firstValue: 0,
+      secondValue: 0,
+    },
+    allocation: {
+      firstValue: 0,
+      secondValue: null,
+    },
+    targetWeight: {
+      firstValue: 0,
+      secondValue: null,
+    },
+    portfolio: {
+      title: 'Procter',
+      colors: {
+        text: '#219324',
+        bg: '#FFE178',
+        border: '#219324',
       },
     },
   },

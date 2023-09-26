@@ -1,4 +1,5 @@
 export enum HeadEnum {
+  None = 'none',
   Name = 'name',
   Tier = 'tier',
   ParentPortfolios = 'parentPortfolios',
@@ -26,9 +27,17 @@ export enum HeadEnum {
   Views = 'views',
   Custodians = 'custodians',
   AccountHolders = 'accountHolders',
+  NameSymbol = 'nameSymbol',
+  LongShort = 'longShort',
+  Quantity = 'quantity',
+  PriceCurrency = 'priceCurrency',
+  AveragePrice = 'averagePrice',
+  ValueMarketPrice = 'valueMarketPrice',
+  Portfolio = 'portfolio',
 }
 
 export const HEAD_DATA: { [key in HeadEnum]: string } = {
+  [HeadEnum.None]: '',
   [HeadEnum.Name]: 'Name',
   [HeadEnum.Tier]: 'Tier',
   [HeadEnum.ParentPortfolios]: 'Parent portfolios',
@@ -56,4 +65,11 @@ export const HEAD_DATA: { [key in HeadEnum]: string } = {
   [HeadEnum.Views]: 'Views',
   [HeadEnum.Custodians]: 'Custodians',
   [HeadEnum.AccountHolders]: 'Account	holders',
+  [HeadEnum.NameSymbol]: 'Name symbol',
+  [HeadEnum.LongShort]: 'Long short',
+  [HeadEnum.Quantity]: 'Quantity',
+  [HeadEnum.PriceCurrency]: 'Price currency',
+  [HeadEnum.AveragePrice]: 'Average price',
+  [HeadEnum.ValueMarketPrice]: 'Value market price',
+  [HeadEnum.Portfolio]: 'Portfolio',
 };
