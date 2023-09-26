@@ -26,9 +26,9 @@ export const Wrapper = styled.div`
 
 export const THead = styled.div<TableProps>`
   height: 48px;
-  width: calc(174px * ${({ columns }) => columns});
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(${({ columns }) => columns}, 174px);
+  grid-template-columns: repeat(${({ columns }) => columns}, 1fr);
   align-items: center;
   color: ${({ theme }) => theme.colors.textPrimary};
   font-size: 14px;
@@ -41,9 +41,9 @@ export const THead = styled.div<TableProps>`
 export const TRow = styled.div<TableProps>`
   position: relative;
   height: 48px;
-  width: calc(174px * ${({ columns }) => columns});
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(${({ columns }) => columns}, 174px);
+  grid-template-columns: repeat(${({ columns }) => columns}, 1fr);
   align-items: center;
   border-bottom: 1px solid #292949;
   color: ${({ theme }) => theme.colors.textPrimary};
